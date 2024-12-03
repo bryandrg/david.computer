@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+td:first-child {
+    font-weight: bold;
+    text-align: right;
+    width: 30%;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
