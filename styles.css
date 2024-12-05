@@ -1,0 +1,237 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Mono", monospace;
+    background-color: #fffef1;
+    color: #1f1f1f;
+    line-height: 1.1;
+}
+
+/* General Link Style */
+a {
+    text-decoration: none; /* Remove underline */
+    color: #242424; /* Set text color */
+    display: inline-block; /* Makes it easier to add padding */
+    padding: 3px 3px; /* Adds spacing around the text */
+    background-color: #e0e0e0; /* Background color */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+    /*font-weight: bold;  Make the link stand out */
+}
+
+/* Hover Effect for Links */
+a:hover {
+    background-color: #d0d0d0; /* Slightly darker background on hover */
+    color: #000; /* Darker text color on hover */
+}
+
+/* Links that Look Like Buttons */
+.button-link {
+    background-color: #242424; /* Dark background */
+    color: #d0d0d0; /* Light text */
+    padding: 4px 6px; /* Button-like padding */
+    border: 1px solid #000; /* Optional border for emphasis */
+    border-radius: 12px; /* Make it look like a button */
+}
+
+.button-link:hover {
+    background-color: #fffef1; /* Subtle hover effect */
+    color: #fffef1;
+}
+
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+header h1 a {
+    text-decoration: underline;
+    background-color: transparent; /* Remove background color */
+    color: #1f1f1f;
+}
+
+/* Centered Links Below Header */
+.centered-links {
+    text-align: center; /* Center the links horizontally */
+    margin-top: 10px; /* Add space between the header and links */
+}
+
+.centered-links a {
+    margin: 0 20px; /* Add spacing between links */
+    text-decoration: underline; /* Ensure links are underlined */
+    color: #242424; /* Matches your link text color */
+    display: inline-block; /* Keeps the spacing consistent */
+    transition: color 0.2s ease; /* Smooth transition on hover */
+}
+
+.centered-links a:hover {
+    color: #000; /* Darker color on hover for emphasis */
+}
+
+/* Section */
+section {
+    margin-bottom: 10px;
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 1px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders share the same space */
+    margin-bottom: 20px;
+    background-color: #fffef1;
+    border: 1px solid #242424; /* Outer border */
+}
+
+thead th {
+    background-color: #1f1f1f;
+    color: #fffef1;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border: none; /* No dividers between columns in header */
+}
+
+tbody td {
+    padding: 10px;
+    border: none; /* No column dividers */
+    border-bottom: 1px solid #242424; /* Line between rows */
+    color: #242424;
+}
+
+/* Table Container for Side-by-Side Tables */
+.table-container {
+    display: inline-flex; /* Align tables side by side */
+    align-items: flex-start; /* Align tops of tables */
+    gap: 20px; /* Space between tables */
+}
+
+.table-container table {
+    border-collapse: collapse;
+    background-color: #fffef1;
+    border: 1px solid #242424; /* Outer border */
+}
+
+.table-container table td,
+.table-container table th {
+    padding: 8px 8px;
+    border: none; /* Removes column dividers */
+    border-bottom: 1px solid #242424; /* Line between rows */
+    text-align: left;
+}
+
+/* Header Row Style */
+.table-container table th {
+    background-color: #242424;
+    color: #fffef1;
+    border: none; /* No column dividers */
+}
+
+/* Full-Width Table Style */
+.full-width-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1px;
+    border: 1px solid #242424; /* Outer border */
+}
+
+.full-width-table thead th {
+    background-color: #242424;
+    color: #fffef1;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border: none; /* No column dividers */
+}
+
+.full-width-table tbody td {
+    padding: 8px;
+    border: none; /* No column dividers */
+    border-bottom: 1px solid #242424; /* Line between rows */
+    color: #242424;
+}
+/* Column Widths for Full-Width Table */
+.full-width-table td:first-child {
+    width: 18%; /* Date column (smallest space) */
+}
+
+.full-width-table td:nth-child(2) {
+    width: 72%; /* Title column (largest space) */
+}
+
+.full-width-table td:last-child {
+    width: 10%; /* Link column */
+}
+
+/* Footer */
+footer {
+    text-align: left;
+    font-size: 0.7em;
+    margin-top: 80px;
+    line-height: 0.1;
+    color: #777;
+}
+
+footer a {
+    color: #555;
+    background-color: transparent; /* Remove background color */
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .table-container {
+        flex-direction: column; /* Stack tables vertically */
+        align-items: stretch; /* Ensure tables take full width */
+    }
+}
+
+/* Ensure the icons are placed below the second table */
+.table-with-icons {
+    position: relative; /* Makes it easier to position the icons */
+}
+
+.icon-container {
+    display: flex; /* Arrange icons in a row */
+    justify-content: center; /* Center icons horizontally */
+    margin-top: 1px; /* Add space above the icons */
+    gap: 15px; /* Space between the icons */
+}
+
+.icon-container a {
+    text-decoration: none; /* Remove underline */
+    padding: 0; /* Remove padding applied to links */
+    background-color: transparent; /* Remove background color */
+    border-radius: 0; /* Remove border-radius */
+    display: inline-flex; /* Keep icon alignment intact */
+}
+
+.icon-container i {
+    font-size: 24px; /* Icon size */
+    color: #242424; /* Default icon color */
+    transition: color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+.icon-container a:hover i {
+    color: #242424; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly enlarge icon */
+}

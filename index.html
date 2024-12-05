@@ -3,132 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryan Robles</title>
-    <style>
-        /* General Reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Container */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        /* Content Section */
-        section {
-            margin-bottom: 30px;
-        }
-
-        section h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        section p {
-            margin: 0 0 10px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            margin-top: 40px;
-            color: #777;
-        }
-
-        footer a {
-            color: #555;
-            text-decoration: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>Bryan Robles | Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Bryan Robles</h1>
-            <p>Personal updates and projects</p>
+            <h1><a href="index.html">DAVID.COMPUTER</a></h1>
+            <nav class="centered-links">
+                <a href="w/who/index.html">who</a>
+                <a href="w/what/index.html">what</a>
+                <a href="w/why/index.html">why</a>
+            </nav>
         </header>
 
+        <!-- About Section -->
+        <section id="About">
+            <h2>About</h2>            
+            <div class="table-container">
+                <!-- Table 1 -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Personal Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Bryan D. Robles G.</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>Las Cruces, NM</td>
+                        </tr>
+                        <tr>
+                            <td>Education</td>
+                            <td>BS. Computer Science, New Mexico State University</td>
+                        </tr>
+                        <tr>
+                            <td>Cats</td>
+                            <td><a href="cats/index.html">One (1)</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <!-- Table 2 with icons -->
+                <div class="table-with-icons">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Email</td>
+                                <td><a href="mailto: davidbroblesg@gmail.com">davidbroblesg@gmail.com</a></td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>+1(575)571-5710</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: center;">
+                                    <a href="https://github.com/bryandrg" target="_blank">GitHub</a> |
+                                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+                                    <a href="resume.pdf" target="_blank">Resume</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            
+                    <!-- Icons -->
+                    <div class="icon-container">
+                        <!-- Spotify -->
+                        <a href="https://open.spotify.com/user/lg7uzi6cb8pk3xcw2oslvyy8o?si=89a6e40142bd4bb3" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-spotify"></i></a>
+                        <!-- Letterboxd -->
+                        <a href="https://letterboxd.com/bryan_drg/" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-square-letterboxd"></i></a>
+                        <!-- Goodreads -->
+                        <a href="https://goodreads.com/bryan_drg" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-goodreads"></i></a>
+                        <!-- Last.fm -->
+                        <a href="https://www.last.fm/user/bryan_drg" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-square-lastfm"></i></a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/bryan_drg/" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
         
-        <section id="info">
-    <h2>Info</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Field</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Name:</strong></td>
-                <td>Bryan Robles</td>
-            </tr>
-            <tr>
-                <td><strong>Location:</strong></td>
-                <td>El Paso, TX</td>
-            </tr>
-            <tr>
-                <td><strong>Email:</strong></td>
-                <td><a href="mailto:bryan@example.com">bryan@example.com</a></td>
-            </tr>
-            <tr>
-                <td><strong>GitHub:</strong></td>
-                <td><a href="https://github.com/bryanrobles" target="_blank">github.com/bryanrobles</a></td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-
-        <!-- Section: About -->
-        <section id="about">
-            <h2>About</h2>
-            <p>Welcome to my personal website! Here, I share updates about my life, work, and hobbies.</p>
+        
+        <!-- Updates Section -->
+        <section id="updates">
+            <h2>Updates</h2>
+            <!-- Full-width table -->
+            <table class="full-width-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DEC 05, 2024</td>
+                        <td>Hello, World!</td>
+                        <td><a href="updates/hello-world.html">Read →</a></td>
+                    </tr>
+                    <td><a href="updates/index.html">More →</a></td>
+                </tbody>
+            </table>
         </section>
+        
 
-        <!-- Section: Projects -->
+        <!-- Projects Section -->
         <section id="projects">
             <h2>Projects</h2>
             <p><strong>Current:</strong> Building a pixel-art game using Godot.</p>
-            <p><strong>Upcoming:</strong> Prototype for a Photos app redesign for iOS.</p>
+            <p><strong>Current:</strong> Prototype for a Photos app redesign for iOS.</p>
         </section>
 
-        <!-- Section: Updates -->
-        <section id="updates">
+        <!-- Updates Section -->
+        <!-- <section id="updates">
             <h2>Updates</h2>
             <p>November 20, 2024 - Started working on my personal webpage!</p>
-        </section>
+        </section> -->
 
         <!-- Footer -->
         <footer>
+            <p>v0.5.5</p>
             <p>&copy; 2024 Bryan Robles</p>
-            <p>Inspired by <a href="https://liza.io/" target="_blank">Liza.io</a> and <a href="https://neil.computer/" target="_blank">Neil.computer</a>.</p>
+            <p>Home page inspired by <a href="https://liza.io/" target="_blank">Liza Shulyayeva</a> and <a href="https://neil.computer/" target="_blank">Neil Panchal</a>.</p>
         </footer>
     </div>
 </body>
