@@ -171,15 +171,15 @@ tbody td {
 }
 /* Column Widths for Full-Width Table */
 .full-width-table td:first-child {
-    width: 18%; /* Date column (smallest space) */
+    width: 20%; /* Date column (smallest space) */
 }
 
 .full-width-table td:nth-child(2) {
-    width: 72%; /* Title column (largest space) */
+    width: 68%; /* Title column (largest space) */
 }
 
 .full-width-table td:last-child {
-    width: 10%; /* Link column */
+    width: 12%; /* Link column */
 }
 
 /* Footer */
