@@ -1,150 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bryan Robles - Computer Science graduate and developer">
+    <meta name="keywords" content="Bryan Robles, Computer Science, Developer, Portfolio">
+    <meta name="author" content="Bryan Robles">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Bryan Robles | Home">
+    <meta property="og:description" content="Bryan Robles - Computer Science graduate and developer">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://david.computer">
+    
+    <!-- External Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">    
+    <link rel="stylesheet" href="/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    
     <title>Bryan Robles | Home</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
-<body>
+<body class="index-page">
+    
     <div class="container">
         <!-- Header -->
         <header>
-            <h1><a href="index.html">DAVID.COMPUTER</a></h1>
-            <nav class="centered-links">
-                <a href="w/who/index.html">who</a>
-                <a href="w/what/index.html">what</a>
-                <a href="w/why/index.html">why</a>
+            <div class="typewriter">
+                <div>
+                    <h4>DAVID.COMPUTER</h4>
+                </div>
+            </div>
+            <nav class="centered-links" aria-label="Main navigation">
+                <a href="/w/who/">who</a>
+                <a href="/w/what/">what</a>
+                <a href="/w/why/">why</a>
             </nav>
         </header>
 
-        <!-- About Section -->
-        <section id="About">
-            <h2>About</h2>            
-            <div class="table-container">
-                <!-- Table 1 -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Personal Information</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>Bryan D. Robles G.</td>
-                        </tr>
-                        <tr>
-                            <td>Location</td>
-                            <td>Las Cruces, NM</td>
-                        </tr>
-                        <tr>
-                            <td>Education</td>
-                            <td>BS. Computer Science, New Mexico State University</td>
-                        </tr>
-                        <tr>
-                            <td>Cats</td>
-                            <td><a href="cats/index.html">One (1)</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            
-                <!-- Table 2 with icons -->
-                <div class="table-with-icons">
-                    <table>
+        <main>
+            <!-- About Section -->
+            <section id="about" aria-labelledby="about-heading">
+                <h5 id="about-heading">About</h5>            
+                <div class="table-container">
+                    <!-- Personal Information -->
+                    <table aria-label="Personal Information">
                         <thead>
                             <tr>
-                                <th colspan="2">Contact</th>
+                                <th scope="col" colspan="2">Personal Information</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Email</td>
-                                <td><a href="mailto: contact@david.computer">contact@david.computer</a></td>
+                                <td scope="row">Name</td>
+                                <td>Bryan D. Robles G.</td>
                             </tr>
                             <tr>
-                                <td>Phone</td>
-                                <td>+1(575)571-5710</td>
+                                <td scope="row">Location</td>
+                                <td>Las Cruces, NM</td>
                             </tr>
                             <tr>
-                                <td colspan="3" style="text-align: center;">
-                                    <a href="https://github.com/bryandrg" target="_blank">GitHub</a> |
-                                    <a href="https://www.linkedin.com/in/bryan-david-robles-guzm%C3%A1n-819302340" target="_blank">LinkedIn</a> |
-                                    <a href="https://drive.google.com/file/d/1AmAykSnC1-BL9LsmiTQjy36g9NGC1uaq/view?usp=sharing" target="_blank">Resumé</a>
-                                </td>
+                                <td scope="row">Education</td>
+                                <td>B.S. Computer Science, New Mexico State University</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Cats</td>
+                                <td><a href="/cats/">One (1)</a></td>
                             </tr>
                         </tbody>
                     </table>
-            
-                    <!-- Icons -->
-                    <div class="icon-container">
-                        <!-- Spotify -->
-                        <a href="https://open.spotify.com/user/lg7uzi6cb8pk3xcw2oslvyy8o?si=89a6e40142bd4bb3" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-spotify"></i></a>
-                        <!-- Letterboxd -->
-                        <a href="https://letterboxd.com/bryan_drg/" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-square-letterboxd"></i></a>
-                        <!-- Goodreads -->
-                        <a href="https://goodreads.com/bryan_drg" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-goodreads"></i></a>
-                        <!-- Last.fm -->
-                        <a href="https://www.last.fm/user/bryan_drg" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-square-lastfm"></i></a>
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/bryan_drg/" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-instagram"></i></a>
+                
+                    <!-- Contact Information -->
+                    <div class="table-with-icons">
+                        <table aria-label="Contact Information">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="2">Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">Email</td>
+                                    <td>
+                                        <a href="mailto:contact@david.computer">contact@david.computer</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Phone</td>
+                                    <td>+1(575)571-5710</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">
+                                        <a href="https://github.com/bryandrg" target="_blank" rel="noopener noreferrer">GitHub</a> |
+                                        <a href="https://www.linkedin.com/in/bryan-david-robles-guzm%C3%A1n-819302340" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                                        <a href="https://drive.google.com/file/d/1AmAykSnC1-BL9LsmiTQjy36g9NGC1uaq/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resumé</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                
+                        <!-- Social Media Icons -->
+                        <div class="icon-container">
+                            <!-- Spotify -->
+                            <a href="https://open.spotify.com/user/lg7uzi6cb8pk3xcw2oslvyy8o?si=89a6e40142bd4bb3" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-spotify"></i>
+                            </a>
+                            <!-- Letterboxd -->
+                            <a href="https://letterboxd.com/bryan_drg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-square-letterboxd"></i>
+                            </a>
+                            <!-- Goodreads -->
+                            <a href="https://goodreads.com/bryan_drg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-goodreads"></i>
+                            </a>
+                            <!-- Last.fm -->
+                            <a href="https://www.last.fm/user/bryan_drg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-square-lastfm"></i>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/bryan_drg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-        
-        <!-- Updates Section -->
-        <section id="updates">
-            <h2>Updates</h2>
-            <!-- Full-width table -->
-            <table class="full-width-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Title</th>
-                        <th style="text-align: right;">Link </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>DEC 05, 2024</td>
-                        <td>Hello, World!</td>
-                        <td>
-                                <a href="updates/hello-world.html">Read →</a></td>
-                    </tr>
-                    <td colspan="3" style="text-align: left;">
-                        <a href="updates/index.html">More →</a>
-                    </td>
-                </tbody>
-            </table>
-        </section>
-        
+            </section>
+            
+            <!-- Updates Section -->
+            <section id="updates" aria-labelledby="updates-heading">
+                <h5 id="updates-heading">Updates</h5>
+                <table class="full-width-table" aria-label="Recent Updates">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Title</th>
+                            <th scope="col" style="text-align: right;">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DEC 05, 2024</td>
+                            <td>Hello, World!</td>
+                            <td>
+                                <a href="updates/hello-world.html">Read →</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: left;">
+                                <a href="updates/index.html">More →</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <p><strong>Current:</strong> Building a pixel-art game using Godot.</p>
-            <p><strong>Current:</strong> Prototype for a Photos app redesign for iOS.</p>
-        </section>
-
-        <!-- Updates Section -->
-        <!-- <section id="updates">
-            <h2>Updates</h2>
-            <p>November 20, 2024 - Started working on my personal webpage!</p>
-        </section> -->
+            <!-- Projects Section -->
+            <section id="projects" aria-labelledby="projects-heading">
+                <h5 id="projects-heading">Projects</h5>
+                <p><strong>Current:</strong> Building a pixel-art game using Godot.</p>
+                <p><strong>Current:</strong> Prototype for a Photos app redesign for iOS.</p>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer>
-            <p>v0.5.6</p>
-            <p>&copy; 2024 Bryan Robles</p>
-            <p>Home page inspired by <a href="https://liza.io/" target="_blank">Liza Shulyayeva</a> and <a href="https://neil.computer/" target="_blank">Neil Panchal</a>.</p>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>v0.6.0</p>
+                    <p>&copy; 2024 Bryan Robles</p>
+                    <p>Home page inspired by 
+                        <a href="https://liza.io/" target="_blank" rel="noopener noreferrer">Liza Shulyayeva</a> and 
+                        <a href="https://neil.computer/" target="_blank" rel="noopener noreferrer">Neil Panchal</a>.
+                    </p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
         </footer>
     </div>
+
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
 </body>
 </html>

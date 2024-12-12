@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Swatch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .swatch-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .swatch-section {
+            margin-bottom: 4rem;
+        }
+        
+        .sample-text {
+            color: #777;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        .divider {
+            margin: 2rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="swatch-container">
+        <h4>Typography & Components Swatch</h4>
+        
+        <!-- Index Page Typography -->
+        <div class="swatch-section index-page">
+            <h5>Index Page Typography (Roboto Mono)</h5>
+            <div class="divider"></div>
+            
+            <div class="entry-title">
+                <h5>Title with Dotted Lines</h5>
+            </div>
+            <p class="sample-text">Used for section titles, centered with dotted lines</p>
+            
+            <h4>Main Title (h4)</h4>
+            <p class="sample-text">2.618rem - Used for DAVID.COMPUTER</p>
+            
+            <h5>Section Headers (h5)</h5>
+            <p class="sample-text">1.618rem - Used for section titles</p>
+            
+            <h6>Subheader (h6)</h6>
+            <p class="sample-text">1rem - Used for smaller sections</p>
+            
+            <p>Standard Text</p>
+            <p class="sample-text">1rem - Default text size</p>
+            
+            <div class="sample-text">Footer Text</div>
+            <p class="sample-text">0.618rem - Used in footer</p>
+        </div>
+        
+        <!-- Content Page Typography -->
+        <div class="swatch-section content-page">
+            <h5>Content Page Typography (Atkinson Hyperlegible)</h5>
+            <div class="divider"></div>
+            
+            <p>This is a paragraph in Atkinson Hyperlegible. Notice the text indentation and optimal reading width (70ch max-width). The line height is set to 1.6 for better readability.</p>
+            
+            <blockquote>
+                This is a blockquote using Atkinson Hyperlegible. The size is 1.618rem, matching h5.
+            </blockquote>
+            
+            <p><strong>Bold text</strong> and <em>italic text</em> in content pages.</p>
+            
+            <p>Here is some <code>inline code</code> and a code block:</p>
+            
+            <pre><code>function example() {
+    return "This is a code block";
+}</code></pre>
+            
+            <ul>
+                <li>This is a list item</li>
+                <li>Demonstrating list styling</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h5>Tags</h5>
+            <p>Example tags with different styles:</p>
+            <a href="#" class="tag">meta</a>
+            <a href="#" class="tag">blog</a>
+        </div>
+        
+        <!-- Reserved Sizes -->
+        <div class="swatch-section">
+            <h5>Reserved Larger Sizes</h5>
+            <div class="divider"></div>
+            
+            <h1>H1 Size</h1>
+            <p class="sample-text">11.089rem - Reserved for special use</p>
+            
+            <h2>H2 Size</h2>
+            <p class="sample-text">6.854rem - Reserved for special use</p>
+            
+            <h3>H3 Size</h3>
+            <p class="sample-text">4.236rem - Reserved for special use</p>
+        </div>
+
+        <!-- Navigation Examples -->
+        <div class="swatch-section">
+            <h5>Navigation Elements</h5>
+            <div class="divider"></div>
+
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="#">Home</a> / <a href="#">Section</a> / <a href="#" class="current-page">Current</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

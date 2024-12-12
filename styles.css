@@ -1,71 +1,179 @@
-/* Root Font Size */
-html {
-    font-size: 100%; /* Respects the user's default browser font size */
+/***************************************
+ * TABLE OF CONTENTS
+ * 1. CSS Variables & Theme Settings
+ * 2. Font Imports
+ * 3. Basic Reset & General Styles
+ * 4. Typography & Text Styles
+ * 5. Layout & Container Styles
+ * 6. Header & Navigation
+ * 7. Table Styles
+ * 8. Link Styles
+ * 9. Code & Blockquote Styles
+ * 10. Footer Styles
+ * 11. Animation Styles
+ * 12. Responsive Design
+***************************************/
+
+/***************************************
+ * 1. CSS VARIABLES & THEME SETTINGS
+ * Edit these values to customize the site
+***************************************/
+
+:root {
+    /* Color System */
+    --bg-primary: #fffef1;          /* Main background color */
+    --text-primary: #1f1f1f;        /* Main text color */
+    --text-secondary: #777;         /* Secondary text color (used in footer, etc.) */
+    --border-color: #242424;        /* Border color for tables, dividers */
+    --link-bg: #e0e0e0;            /* Link background color */
+    --link-hover: #d0d0d0;         /* Link hover background color */
+    
+    /* Code & Table Colors */
+    --code-bg: #f4f4f4;            /* Background color for code blocks */
+    --code-text: var(--text-primary);  /* Text color in code blocks */
+    --table-header-bg: #1f1f1f;    /* Table header background */
+    --table-header-text: #fffef1;  /* Table header text color */
+    --table-bg: var(--bg-primary); /* Table background color */
+    --blockquote-color: #555;      /* Blockquote text color */
+    
+    /* Typography Weights */
+    --table-header-weight: bold;
+    --table-cell-weight: normal;
+    
+    /* Spacing System */
+    --container-padding: 20px;
+    --section-spacing: 2rem;
+    --element-spacing: 1rem;
+    
+    /* Typography Scale */
+    --text-h1: 11.089rem;          /* Reserved for special use */
+    --text-h2: 6.854rem;           /* Reserved for special use */
+    --text-h3: 4.236rem;           /* Reserved for special use */
+    --text-h4: 2.618rem;           /* Main title size */
+    --text-h5: 1.618rem;           /* Section headers */
+    --text-h6: 1rem;               /* Small headers */
+    --text-base: 1rem;             /* Standard text */
+    --text-small: 1rem;            /* Small text */
+    --text-footer: 0.618rem;       /* Footer text */
+    --text-blockquote: 1.618rem;   /* Blockquote size */
+    --text-code: 1rem;             /* Code text size */
+
+    /* Font Families */
+    --font-heading: "Roboto Mono", monospace;
+    --font-content: "Atkinson Hyperlegible", sans-serif;
 }
 
-/* General Reset */
+/* Dark Theme Colors */
+[data-theme="dark"] {
+    --bg-primary: #000000;
+    --text-primary: #fffef1;
+    --text-secondary: #aaa;
+    --border-color: #444;
+    --link-bg: #333;
+    --link-hover: #444;
+    --code-bg: #2d2d2d;
+    --code-text: #fffef1;          /* Code text color in dark mode */
+    --table-header-bg: #000;
+    --table-header-text: #fffef1;
+    --table-bg: #111;              /* Dark mode table background */
+    --blockquote-color: #aaa;
+}
+
+/***************************************
+ * 2. FONT IMPORTS
+ * Google Fonts import for Roboto Mono and Atkinson Hyperlegible
+***************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/***************************************
+ * 3. BASIC RESET & GENERAL STYLES
+***************************************/
+
+html {
+    font-size: 100%;
+}
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: "Roboto Mono", monospace;
-    font-size: 1rem; /* Base font size in rem */
-    background-color: #fffef1;
-    color: #1f1f1f;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.1;
 }
 
-/* Header */
-header {
-    text-align: center;
-    margin-bottom: 2rem; /* Vertical spacing in rem */
-    
+/* Page Type Styles */
+.index-page {
+    font-family: var(--font-heading);
+}
+
+.content-page {
+    font-family: var(--font-heading);
+}
+
+.content-page main {
+    font-family: var(--font-content);
+}
+
+.content-page main article p {
+    text-indent: 2em;  /* Only indent article paragraphs */
+}
+
+/***************************************
+ * 4. TYPOGRAPHY & TEXT STYLES
+***************************************/
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
 }
 
 h1 {
-    font-size: 2.5rem; 
-    margin: 0 0 1rem 0;
-}
-header h1 a {
-    text-decoration: underline;
-    background-color: transparent; /* Remove background color */
-    color: #1f1f1f;
+    font-size: var(--text-h1);
+    margin: 0 0 var(--element-spacing) 0;
 }
 
 h2 {
-    font-size: 2rem; 
-    margin: 0 0 0.8rem 0;
+    font-size: var(--text-h2);
+    margin: 0 0 0.2rem 0;
 }
 
 h3 {
-    font-size: 1.75rem; 
-    margin: 0 0 0.7rem 0;
+    font-size: var(--text-h3);
+    margin: 0 0 0.2rem 0;
 }
 
 h4 {
-    font-size: 1.618rem; 
-    margin: 0 0 0.6rem 0;
+    font-size: var(--text-h4);
+    margin: 0 0 0.2rem 0;
 }
 
 h5 {
-    font-size: 1rem; 
-    margin: 0 0 0.5rem 0;
+    font-size: var(--text-h5);
+    margin: 0 0 0.2rem 0;
 }
 
 h6 {
-    font-size: 1rem;
-    margin: 0 0 0.4rem 0;
-    text-transform: uppercase; /* Optional for style */
+    font-size: var(--text-h6);
+    margin: 0 0 0.2rem 0;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Paragraph and Text */
+/* Text Elements */
 p {
-    font-size: 1rem; /* Base size */
-    margin-bottom: 1rem;
+    font-size: var(--text-base);
+    margin-bottom: var(--element-spacing);
+}
+
+.content-page main p {
+    line-height: 1.5;
+    max-width: 70ch;
 }
 
 small {
-    font-size: 0.875rem; /* Smaller text */
+    font-size: var(--text-small);
 }
 
 strong {
@@ -76,21 +184,7 @@ em {
     font-style: italic;
 }
 
-blockquote {
-    font-size: 1.25rem;
-    margin: 1.5rem 0;
-    padding-left: 1rem;
-    border-left: 3px solid #242424;
-    color: #555;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #242424;
-    margin: 2rem 0;
-}
-
-/* List Styling */
+/* Lists */
 ul, ol {
     margin-left: 1.5rem;
 }
@@ -99,215 +193,505 @@ li {
     margin-bottom: 0.5rem;
 }
 
-code {
-    font-family: "Courier New", Courier, monospace;
-    background-color: #f4f4f4;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
+/* Entry Title Styles */
+.entry-title {
+    position: relative;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: fit-content;
+    margin: 0 auto;  /* Centers the container */
 }
 
-pre {
-    background-color: #f4f4f4;
-    padding: 1rem;
-    border-radius: 4px;
-    overflow-x: auto;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 0.875rem;
+.entry-title::before,
+.entry-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-image: radial-gradient(
+        circle, 
+        var(--border-color) 1px, 
+        transparent 1px
+    );
+    background-size: 10px 2px;  /* First value controls spacing */
+    background-position: center;
+    background-repeat: repeat-x;
 }
 
-/* General Link Style */
-a {
-    text-decoration: none;
-    color: #242424;
-    display: inline-block;
-    padding: 3px; /* Padding in px for precision */
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+.entry-title::before {
+    top: 0;
 }
 
-a:hover {
-    background-color: #d0d0d0;
-    color: #000;
+.entry-title::after {
+    bottom: 0;
 }
 
-.button-link {
-    background-color: #242424;
-    color: #d0d0d0;
-    padding: 4px; /* Padding in px for precision */
-    border: 1px solid #000;
-    border-radius: 12px;
+.entry-title h5 {
+    margin: 0;
 }
 
-.button-link:hover {
-    background-color: #fffef1;
-    color: #fffef1;
+.entry-title time {
+    display: block;
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+    margin-top: 0.5rem;
 }
 
-/* Container */
+.entry-tags {
+    margin: 2rem 0;
+}
+
+hr {
+    margin: 3rem 0 2rem 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
+}
+
+/***************************************
+ * 5. LAYOUT & CONTAINER STYLES
+***************************************/
+
 .container {
-    width: calc(100% - 20px);
-    max-width: 50rem; /* Width in rem for responsiveness */
+    position: relative;
+    width: min(50rem, calc(100% - 2rem));
     margin: 0 auto;
-    box-sizing: border-box;
-    
+    padding: 1rem;
 }
 
-/* Centered Links Below Header */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--element-spacing);
+    width: 100%;
+    margin-top: 0.2rem;
+}
+
+
+/***************************************
+ * 6. HEADER & NAVIGATION
+***************************************/
+
+header {
+    text-align: center;
+    margin-bottom: var(--section-spacing);
+}
+
 .centered-links {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.1rem;
 }
 
 .centered-links a {
-    margin: 0 1rem; /* Horizontal spacing in rem */
+    margin: 0 var(--element-spacing);
     text-decoration: underline;
-    color: #242424;
+    color: var(--text-primary);
     display: inline-block;
     transition: color 0.2s ease;
 }
 
 .centered-links a:hover {
-    color: #000; /* Darker color on hover for emphasis */
+    color: var(--text-secondary);
 }
 
-/* Section */
-section {
-    margin-bottom: 1rem;
-}
+/***************************************
+ * 7. TABLE STYLES
+***************************************/
 
-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.2rem;
-}
-
-/* Table */
+/* Basic Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
-    background-color: #fffef1;
-    border: 1px solid #242424;
+    margin-bottom: var(--element-spacing);
+    background-color: var(--table-bg);
+    border: 1px solid var(--border-color);
 }
 
 thead th {
-    background-color: #1f1f1f;
-    color: #fffef1;
-    font-weight: bold;
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: var(--table-header-weight);
     text-align: left;
     padding: 8px;
 }
 
 tbody td {
     padding: 8px;
-    border-bottom: 1px solid #242424;
-    color: #242424;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: var(--table-cell-weight);
 }
 
-/* Table Container for Side-by-Side Tables */
+/* Table Layout Components */
 .table-container {
     display: inline-flex;
     align-items: flex-start;
     gap: 20px;
 }
 
-.table-container table td,
-.table-container table th {
-    padding: 8px;
-    border-bottom: 1px solid #242424;
-    text-align: left;
+/* Table and Icons Layout */
+.table-with-icons {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
 }
 
-/* NEED TO EDIT */
-/* Full-Width Table Style */
+/* Updates Table */
 .full-width-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1px;
-    border: 1px solid #242424; /* Outer border */
+    border: 1px solid var(--border-color);
 }
 
 .full-width-table thead th {
-    background-color: #242424;
-    color: #fffef1;
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
     font-weight: bold;
     text-align: left;
     padding: 8px;
-    border: none; /* No column dividers */
+    border: none;
 }
 
 .full-width-table tbody td {
     padding: 8px;
-    border: none; /* No column dividers */
-    border-bottom: 1px solid #242424; /* Line between rows */
-    color: #242424;
-}
-/* Column Widths for Full-Width Table */
-.full-width-table td:first-child {
-    width: 25%; /* Date column */
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
 }
 
-.full-width-table td:nth-child(2) {
-    width: 50%; /* Title column */
+/* Column Widths for Full-width Tables */
+.full-width-table td:first-child,
+.full-width-table th:first-child {
+    width: 18%;
+    text-align: left;
 }
 
-.full-width-table td:last-child {
+.full-width-table td:nth-child(2),
+.full-width-table th:nth-child(2) {
+    width: 62%;
+    text-align: left;
+}
+
+.full-width-table td:last-child,
+.full-width-table th:last-child {
+    width: 20%;
     text-align: right;
-    width: 25%; /* Link column */
 }
 
-/* DONE UP TO HERE */
-
-/* Ensure the icons are placed below the second table */
-.table-with-icons {
-    position: relative;
+/* Table Link Styles */
+.table-link {
+    background: none;
+    padding: 0;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.icon-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1px;
-    gap: 1rem;
+.table-link:hover {
+    color: var(--text-secondary);
+    background: none;
 }
 
+
+/***************************************
+ * 8. LINK STYLES
+***************************************/
+
+/* General Links */
+a {
+    text-decoration: none;
+    color: var(--text-primary);
+    display: inline-block;
+    padding: 3px;
+    background-color: var(--link-bg);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+a:hover {
+    background-color: var(--link-hover);
+}
+
+/* Header Links */
+header h4 a {
+    text-decoration: underline;
+    background-color: transparent;
+    color: var(--text-primary);
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+header h4 a:hover {
+    color: var(--text-secondary);
+    background-color: transparent;
+}
+
+/* Footer Navigation Links */
+.footer-nav a {
+    color: var(--text-secondary);
+    background-color: transparent;
+    text-decoration: none;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--text-primary);
+    background-color: transparent;
+}
+
+/* Current Page Indicator */
+.footer-nav .current-page {
+    color: var(--text-primary);
+    background-color: var(--link-bg);
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.footer-nav .current-page:hover {
+    background-color: var(--link-hover);
+    color: var(--text-primary);
+}
+
+/* Footer Links */
+footer a {
+    color: var(--text-secondary);
+    background-color: transparent;
+    text-decoration: none;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--text-primary);
+    background-color: transparent;
+}
+
+/* Icon Links */
 .icon-container a {
     text-decoration: none;
-    padding: 0; /* Remove padding applied to links */
+    padding: 0;
     background-color: transparent;
     display: inline-flex;
 }
 
 .icon-container i {
     font-size: 24px;
-    color: #242424;
+    color: var(--text-primary);
     transition: color 0.2s, transform 0.2s;
 }
 
 .icon-container a:hover i {
-    color: #242424;
     transform: scale(1.1);
 }
 
-/* Footer */
+/* Tag Styles */
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-left: 0.5rem;  /* Changed from margin-right to margin-left for right alignment */
+    border-radius: 4px;
+    font-size: 0.85em;
+    background-color: var(--link-bg);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.tag:hover {
+    background-color: var(--link-hover);
+}
+
+
+/* Add more tag colors in the future */
+.tag[href*="meta"] { background-color: #e0f2f1; }
+.tag[href*="blog"] { background-color: #f3e5f5; }
+
+/* Dark mode tag colors */
+[data-theme="dark"] .tag[href*="meta"] { background-color: #004d40; }
+[data-theme="dark"] .tag[href*="blog"] { background-color: #4a148c; }
+
+/***************************************
+ * 9. CODE & BLOCKQUOTE STYLES
+***************************************/
+
+/* Code Blocks */
+code {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: var(--text-code);
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: "Courier New", Courier, monospace;
+    font-size: var(--text-code);
+}
+
+pre code {
+    color: var(--code-text);
+}
+
+/* Blockquotes */
+blockquote {
+    font-size: var(--text-blockquote);
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--border-color);
+    color: var(--blockquote-color);
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+/***************************************
+ * 10. FOOTER STYLES
+***************************************/
+
+/* Footer Navigation */
+.footer-nav {
+    font-family: var(--font-heading);
+    font-size: var(--text-footer);
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Main Footer */
 footer {
     text-align: left;
-    font-size: 0.7rem;
+    font-size: var(--text-footer);
     margin-top: 8rem;
     line-height: 0.4;
-    color: #777;
+    color: var(--text-secondary);
 }
 
-footer a {
-    color: #555;
-    background-color: transparent;
-    text-decoration: none;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-/* Responsive Design */
-@media (max-width: 37.5rem) { /* Media query with rem */
+.footer-left {
+    flex-grow: 1;
+}
+
+.footer-right {
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    padding: 0.3rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    background: var(--link-bg);
+}
+
+/***************************************
+ * 11. ANIMATION STYLES
+***************************************/
+
+/* Typewriter Effect */
+.typewriter {
+    display: flex;
+    justify-content: center;
+}
+
+.typewriter h4 {
+    margin-inline: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-color: transparent;
+    width: 0;
+    animation: 
+        typing 1.6s steps(14) forwards,
+        blink 1s step-end 5;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-right: 1px solid }
+}
+
+/***************************************
+ * 12. RESPONSIVE DESIGN
+***************************************/
+
+@media (max-width: 37.5rem) {
     .table-container {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .full-width-table td:first-child,
+    .full-width-table th:first-child {
+        width: 25%;
+    }
+
+    .full-width-table td:nth-child(2),
+    .full-width-table th:nth-child(2) {
+        width: 53%;
+    }
+
+    .full-width-table td:last-child,
+    .full-width-table th:last-child {
+        width: 22%;
+    }
+    
+    :root {
+        --container-padding: 16px;
+        --section-spacing: 1.5rem;
+        --element-spacing: 0.75rem;
+        --text-h1: 8rem;
+    }
+    footer p {
+        line-height: 0.4; /* More space only when needed */
+        margin-bottom: 0.2rem; /* Space between paragraphs instead */
+        font-size: 0.618rem;
+    }
+
+    .footer-content {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+    }
+    
+    .footer-right {
+        padding-left: 0;
+        width: 100%;
+        justify-content: flex-start;
     }
 }

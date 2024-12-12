@@ -1,29 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <title>What</title>
-    <link rel="stylesheet" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="About Perlita">
+    <meta name="keywords" content="Perlita, Cat, Pet">
+    <meta name="author" content="Bryan Robles">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Perlita | Bryan Robles">
+    <meta property="og:description" content="About my cat Perlita">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://david.computer/cats/perlita.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <title>Perlita | Bryan Robles</title>
 </head>
-<body>
+<body class="content-page">
     <div class="container">
         <!-- Header -->
         <header>
-            <h1><a href="../index.html">DAVID.COMPUTER</a></h1>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
         </header>
-    <header>
-        <h2>Perlita</h2>
-    </header>
-    <section>
-        <p>Perlita was born sometime in the middle of June in the year 2023.</p>
-        
-    </section>
-    <footer>
-        <a href="../index.html">Home</a> / 
-        <a href="index.html">Cats</a>
-        <p>&copy; 2024 Bryan Robles</p>
-    </footer>
+
+        <main>
+            <article>
+                <div class="entry-title">
+                    <h5>Perlita</h5>
+                </div>
+                
+                <p>Perlita was born sometime in the middle of June in the year 2023.</p>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="/">Home</a> / <a href="/cats/">Cats</a> / <a href="/cats/perlita.html" class="current-page">Perlita</a></p>
+                    <p>&copy; 2024 Bryan Robles</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
 </body>
 </html>
