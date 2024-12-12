@@ -276,6 +276,12 @@ hr {
 header {
     text-align: center;
     margin-bottom: var(--section-spacing);
+    width: 100vw;  /* Full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .centered-links {
@@ -386,7 +392,7 @@ tbody td {
     background: none;
     padding: 0;
     color: var(--text-primary);
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.2s ease;
 }
 
@@ -416,12 +422,18 @@ a:hover {
 }
 
 /* Header Links */
+header h4 {
+    margin: 0 auto;  /* Center the heading */
+    width: fit-content;  /* Only take up as much space as needed */
+}
+
 header h4 a {
     text-decoration: underline;
     background-color: transparent;
     color: var(--text-primary);
-    padding: 0;
-    transition: color 0.2s ease;
+    padding: 0;  /* Remove any padding */
+    display: inline;  /* Change from inline-block to inline */
+    white-space: nowrap;  /* Prevent wrapping */
 }
 
 header h4 a:hover {
