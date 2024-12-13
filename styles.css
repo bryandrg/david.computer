@@ -7,11 +7,12 @@
  * 5. Layout & Container Styles
  * 6. Header & Navigation
  * 7. Table Styles
- * 8. Link Styles
- * 9. Code & Blockquote Styles
- * 10. Footer Styles
- * 11. Animation Styles
- * 12. Responsive Design
+ * 8. Image Styles
+ * 9. Link Styles
+ * 10. Code & Blockquote Styles
+ * 11. Footer Styles
+ * 12. Animation Styles
+ * 13. Responsive Design
 ***************************************/
 
 /***************************************
@@ -118,6 +119,12 @@ body, html {
 
 .content-page main article p {
     text-indent: 2em;  /* Only indent article paragraphs */
+}
+
+/* Override text-indent for links */
+.content-page main article p a {
+    text-indent: 0;
+    display: inline; /* This ensures inline behavior */
 }
 
 /***************************************
@@ -466,7 +473,99 @@ tbody td {
 }
 
 /***************************************
- * 8. LINK STYLES
+ * 8. IMAGE STYLES
+***************************************/
+
+/* Base image styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Common layout patterns */
+.content-with-image {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+/* Added this class for when I want closer to 50/50 split */
+.content-with-image.balanced {
+    align-items: stretch;
+}
+
+.content-with-image.balanced img {
+    width: 45%; /* Slightly less than 50% to account for gap */
+    object-fit: cover; /* This maintains aspect ratio while filling the space */
+}
+
+.content-with-image.balanced .content-area {
+    width: 45%;
+}
+
+/* Image size utilities */
+.image-small {
+    width: 200px;
+}
+
+.image-medium {
+    width: 400px;
+}
+
+.image-large {
+    width: 600px;
+}
+
+/* Image position utilities */
+.image-left {
+    float: left;
+    margin: 0 1rem 1rem 0;
+}
+
+.image-right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+
+.image-center {
+    margin: 1rem auto;
+}
+
+/* Prevent image from shrinking in flex container */
+.image-fixed {
+    flex-shrink: 0;
+}
+
+/* Content area in image-text layouts */
+.content-area {
+    flex-grow: 1;
+    min-width: 0; /* Prevents text from overflowing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 37.5rem) {
+    .content-with-image {
+        flex-direction: column;
+    }
+    
+    .image-left,
+    .image-right {
+        float: none;
+        margin: 1rem 0;
+    }
+    
+    /* Allow images to be full width on mobile if needed */
+    .image-medium,
+    .image-large {
+        width: 100%;
+    }
+}
+
+/***************************************
+ * 9. LINK STYLES
 ***************************************/
 
 /* General Links */
@@ -590,7 +689,7 @@ footer a:hover {
 [data-theme="dark"] .tag[href*="blog"] { background-color: #4a148c; }
 
 /***************************************
- * 9. CODE & BLOCKQUOTE STYLES
+ * 10. CODE & BLOCKQUOTE STYLES
 ***************************************/
 
 /* Code Blocks */
@@ -633,7 +732,7 @@ hr {
 }
 
 /***************************************
- * 10. FOOTER STYLES
+ * 11. FOOTER STYLES
 ***************************************/
 
 /* Footer Navigation */
@@ -692,7 +791,7 @@ footer {
 }
 
 /***************************************
- * 11. ANIMATION STYLES
+ * 12. ANIMATION STYLES
 ***************************************/
 
 /* Typewriter Effect */
@@ -722,7 +821,7 @@ footer {
 }
 
 /***************************************
- * 12. RESPONSIVE DESIGN
+ * 13. RESPONSIVE DESIGN
 ***************************************/
 
 @media (max-width: 37.5rem) {
@@ -744,6 +843,26 @@ footer {
     .full-width-table td:last-child,
     .full-width-table th:last-child {
         width: 22%;
+    }
+
+    .content-with-image {
+        flex-direction: column;
+    }
+    
+    .content-with-image.balanced img,
+    .content-with-image.balanced .content-area {
+        width: 100%; /* Full width on mobile */
+    }
+    
+    /* Ensure all images take full width when stacked */
+    .content-with-image img {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Reset content area to full width */
+    .content-with-image .content-area {
+        width: 100%;
     }
     
     :root {
