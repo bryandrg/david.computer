@@ -401,6 +401,69 @@ tbody td {
     background: none;
 }
 
+/* Changelog Styles */
+
+/* Unreleased Section */
+.unreleased-section {
+    margin: 2rem 0;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+}
+
+.unreleased-section h6 {
+    margin-bottom: 1rem;
+}
+
+/* Changelog Table */
+.changelog-table {
+    width: 100%;
+}
+
+/* Column Widths */
+.changelog-table th:first-child,
+.changelog-table td:first-child {
+    width: 17%;
+}
+
+.changelog-table th:nth-child(2),
+.changelog-table td:nth-child(2) {
+    width: 15%;
+}
+
+.changelog-table th:last-child,
+.changelog-table td:last-child {
+    width: 68%;
+    text-align: left;
+}
+
+/* Table Cell Alignment */
+.changelog-table th,
+.changelog-table td {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+/* List Styling within Table */
+.changelog-table td > ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-position: outside;
+}
+
+.changelog-table li {
+    margin-bottom: 0.3rem;
+    text-align: left;
+    display: list-item;
+    padding-right: 1rem;
+}
+
+/* Nested Lists */
+.changelog-table ul ul {
+    margin-top: 0.3rem;
+    padding-left: 1.5rem;
+}
 
 /***************************************
  * 8. LINK STYLES
