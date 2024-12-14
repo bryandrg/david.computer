@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="iOS Photos App Redesign Project - UX Case Study">
+    <meta name="keywords" content="UX Design, iOS, Photos App, Interface Design">
+    <meta name="author" content="Bryan Robles">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Photos App Redesign | Bryan Robles">
+    <meta property="og:description" content="A case study on redesigning the iOS Photos app">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://david.computer/projects/photos-redesign/">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <title>Photos App Redesign | Bryan Robles</title>
+</head>
+<body class="content-page">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
+        </header>
+        <main>
+            <article>
+                <div class="entry-title">
+                    <h5>Photos App Redesign for iOS 18</h5>
+                </div>
+                
+                <div class="project-meta">
+                    <table>
+                        <tr>
+                            <td><strong>Role</strong></td>
+                            <td>Interface Designer & Researcher</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tools</strong></td>
+                            <td>Procreate, Xcode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td>2 members</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h6>Motivation</h6>
+                <p>The release of iOS 18 brought significant changes to the Photos app, but it was met with widespread dissatisfaction due to a cluttered interface and unintuitive navigation. Our project aimed to redesign the Photos app to address these frustrations, focusing on a clean layout, simplified navigation, and better organization of features.</p>
+                <p>As a photographer and designer, I applied my experience managing large photo libraries to create a design that felt both familiar and user-friendly.</p>
+
+                <!-- Add prototype images in a grid -->
+                <div class="grid grid-medium">
+                    <div class="grid-item">
+                        <img src="/images/photos-app/iOS-18-Photos-redesigned.jpg" alt="Original iOS 18 Photos interface">
+                        <span class="grid-item-caption">Original Interface</span>
+                    </div>
+                    <div class="grid-item">
+                        <img src="/images/photos-app/photos-redesigned.png" alt="Redesigned Photos interface">
+                        <span class="grid-item-caption">Redesigned Interface</span>
+                    </div>
+                </div>
+
+                <h6>Online Study</h6>
+                <p>To understand current design patterns and user pain points, our team conducted a comparative study of 30 mobile gallery apps (15 tested by me on Android, 15 by my teammates on iOS). We analyzed:</p>
+                <p>• Navigation structures (e.g., tabs, grids, or lists)</p>
+                <p>• Photo organization features</p>
+                <p>• Visual clarity</p>
+                <p>• Ease of access to editing, sharing, and search tools</p>
+                <p>These insights informed the early design decisions, such as prioritizing simple grid layouts and ensuring common actions were easily accessible.</p>
+
+                <h6>Prototyping Phase</h6>
+                <p>Using Procreate, I created a simple prototype of the redesigned Photos app that addressed the key usability concerns from iOS 18:</p>
+                <p>Photos Section:
+                <ul>
+                    <li>Images displayed in a clean 3-column grid, ensuring visual consistency with square thumbnails.</li>
+                    <li>A minimalist header with a single section title and a three-dot menu for options.</li>
+                </ul></p>
+                <p>Albums Section:
+                    <ul>
+                        <li>Redesigned as a 2-column grid, replacing the cluttered list view for improved navigation.</li>
+                    </ul></p> 
+                <p>Navigation Layout:
+                        <ul>
+                            <li>Simplified with a bottom tab bar featuring four sections: Photos, Albums, Timeline, and Search.</li>
+                        </ul> 
+                    We conducted user testing to compare my prototype with an alternate design created by my teammate.</p>
+
+                <div class="grid grid-large">
+                    <div class="grid-item">
+                        <img src="/images/photos-app/photos-view.png" alt="Photos Section redesign">
+                        <span class="grid-item-caption">Photos View</span>
+                    </div>
+                    <div class="grid-item">
+                        <img src="\images\photos-app\albums-view.png" alt="Albums Section redesign">
+                        <span class="grid-item-caption">Albums View</span>
+                    </div>
+                    <div class="grid-item">
+                        <img src="/images/photos-app/timeline-view.png" alt="Navigation redesign">
+                        <span class="grid-item-caption">Timeline View</span>
+                    </div>
+                </div>
+
+                <h6>User Studies</h6>
+                <p>We conducted two rounds of user testing. In the first round, participants unanimously preferred my design due to its cleaner visual structure and simplified navigation. The second round focused on refinement, leading to improvements in the share menu design.</p>
+
+                <h6>Results & Takeaways</h6>
+                <p>This project demonstrated the value of user-centered design and iterative refinement. Key takeaways include:</p>
+                <p>• Users favor simple, grid-based layouts for managing photo libraries.</p>
+                <p>• Minimalist headers and navigation bars can reduce cognitive load and improve usability.</p>
+                <p>• Testing and comparing multiple prototypes ensures the final design aligns with user needs.</p>
+            </article>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="/">Home</a> / <a href="/projects/">Projects</a> / <a href="/projects/photos-redesign.html" class="current-page">Photos Redesign</a></p>
+                    <p>&copy; 2024 Bryan Robles</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
+</body>
+</html>

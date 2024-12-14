@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bryan Robles - Projects">
+    <meta name="keywords" content="Bryan Robles, Projects">
+    <meta name="author" content="Bryan Robles">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Projects | Bryan Robles">
+    <meta property="og:description" content="Projects">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://david.computer/projects/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <title>Projects | Bryan Robles</title>
+</head>
+<body class="index-page">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
+        </header>
+
+        <main>
+            <!-- Updates Section -->
+            <section style="text-align: center;">
+                <h5>Projects</h5>
+                <!-- Full-width table -->
+                <table class="full-width-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DEC 13, 2024</td>
+                            <td><a href="photos-redesign.html" class="table-link">Photos App Redesign for iOS 18</a></td>
+                            <td style="text-align: right;">Completed
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DEC 13, 2024</td>
+                            <td><a href="get-jacked.html" class="table-link">Get Jacked</a></td>
+                            <td style="text-align: right;">Completed</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="/">Home</a> / <a href="/projects" class="current-page">Projects</a></p>
+                    <p>&copy; 2024 Bryan Robles</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
+</body>
+</html>
