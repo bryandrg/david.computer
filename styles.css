@@ -436,12 +436,12 @@ tbody td {
 
 .changelog-table th:nth-child(2),
 .changelog-table td:nth-child(2) {
-    width: 15%;
+    width: 12%;
 }
 
 .changelog-table th:last-child,
 .changelog-table td:last-child {
-    width: 68%;
+    width: 71%;
     text-align: left;
 }
 
@@ -749,27 +749,78 @@ footer a:hover {
 .tag {
     display: inline-block;
     padding: 2px 8px;
-    margin-left: 0.5rem;  /* Changed from margin-right to margin-left for right alignment */
+    margin-left: 0.5rem;
     border-radius: 4px;
     font-size: 0.85em;
     background-color: var(--link-bg);
     color: var(--text-primary);
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .tag:hover {
     background-color: var(--link-hover);
+    transform: translateY(-1px);
 }
 
+.tag.active {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
 
-/* Add more tag colors in the future */
-.tag[href*="meta"] { background-color: #e0f2f1; }
-.tag[href*="blog"] { background-color: #f3e5f5; }
+/* Clear indicator with perfect circle */
+.tag.active::after {
+    content: '×';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;      /* Made both width and height exactly the same */
+    height: 12px;     /* Made both width and height exactly the same */
+    background-color: var(--bg-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;   /* Slightly smaller font size to fit better */
+    line-height: 1;
+    color: var(--text-primary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 0;       /* Removed padding to ensure perfect circle */
+}
+
+.tag.active:hover::after {
+    opacity: 1;
+}
+
+/* Tag colors */
+.tag[href*="meta"], 
+.tag:not([href])[data-tag="meta"] { 
+    background-color: #e0f2f1; 
+}
+.tag[href*="blog"], 
+.tag:not([href])[data-tag="blog"] { 
+    background-color: #f3e5f5; 
+}
 
 /* Dark mode tag colors */
-[data-theme="dark"] .tag[href*="meta"] { background-color: #004d40; }
-[data-theme="dark"] .tag[href*="blog"] { background-color: #4a148c; }
+[data-theme="dark"] .tag[href*="meta"],
+[data-theme="dark"] .tag:not([href])[data-tag="meta"] { 
+    background-color: #004d40; 
+}
+[data-theme="dark"] .tag[href*="blog"],
+[data-theme="dark"] .tag:not([href])[data-tag="blog"] { 
+    background-color: #4a148c; 
+}
+
+/* Active state overrides specific colors */
+.tag.active {
+    background-color: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+}
 
 /***************************************
  * 10. CODE & BLOCKQUOTE STYLES
@@ -854,7 +905,7 @@ footer {
 
 /* Theme Toggle Button */
 .theme-toggle {
-    padding: 0.3rem;
+    padding: 0.5rem;  /* Increased padding for larger hitbox */
     border-radius: 8px;
     border: none;
     background: var(--bg-primary);
@@ -862,10 +913,17 @@ footer {
     cursor: pointer;
     opacity: 0.8;
     transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Optional: add min-width/height to ensure consistent clickable area */
+    min-width: 2.5rem;
+    min-height: 2.5rem;
 }
 
-.theme-toggle i {
-    font-size: 1.2rem;
+.theme-toggle svg {
+    width: 1.4rem;  /* Slightly larger icons */
+    height: 1.4rem;
 }
 
 .theme-toggle:hover {
@@ -920,12 +978,12 @@ footer {
 
     .full-width-table td:nth-child(2),
     .full-width-table th:nth-child(2) {
-        width: 53%;
+        width: 51%;
     }
 
     .full-width-table td:last-child,
     .full-width-table th:last-child {
-        width: 22%;
+        width: 24%;
     }
 
     .content-with-image {
