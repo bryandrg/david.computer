@@ -23,16 +23,16 @@
 :root {
     /* Color System */
     --bg-primary: #fffef1;          /* Main background color */
-    --text-primary: #1f1f1f;        /* Main text color */
+    --text-primary: #202020;        /* Main text color */
     --text-secondary: #777;         /* Secondary text color (used in footer, etc.) */
-    --border-color: #242424;        /* Border color for tables, dividers */
+    --border-color: #202020;        /* Border color for tables, dividers */
     --link-bg: #e0e0e0;            /* Link background color */
     --link-hover: #d0d0d0;         /* Link hover background color */
     
     /* Code & Table Colors */
     --code-bg: #f4f4f4;            /* Background color for code blocks */
     --code-text: var(--text-primary);  /* Text color in code blocks */
-    --table-header-bg: #1f1f1f;    /* Table header background */
+    --table-header-bg: #202020;    /* Table header background */
     --table-header-text: #fffef1;  /* Table header text color */
     --table-bg: var(--bg-primary); /* Table background color */
     --blockquote-color: #555;      /* Blockquote text color */
@@ -117,6 +117,12 @@ body, html {
     font-family: var(--font-content);
 }
 
+/* Center article content */
+.content-page main article {
+    max-width: 70ch;
+    margin: 0 auto;  /* This centers the article content */
+}
+
 .content-page main article p {
     text-indent: 2em;  /* Only indent article paragraphs */
     margin-bottom: 1rem; /* Consistent space between paragraphs */
@@ -177,7 +183,6 @@ p {
 
 .content-page main p {
     line-height: 1.5;
-    max-width: 70ch;
 }
 
 small {
@@ -255,6 +260,61 @@ hr {
     margin: 3rem 0 2rem 0;
     border: none;
     border-top: 1px solid var(--border-color);
+}
+
+.poem-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.poem {
+    font-family: var(--font-heading);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.poem p {
+    margin-bottom: 1.5rem;
+}
+
+.poem a {
+    text-decoration: underline;
+    background: none;
+    padding: 0;
+}
+
+.poem a:hover {
+    color: var(--text-secondary);
+    background: none;
+}
+
+.poem-attribution {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: var(--text-base);
+    margin-bottom: 3rem;
+}
+
+.navigation-links {
+    margin: 3rem auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+
+.navigation-links a {
+    padding: 0.5rem 1rem;
+}
+
+.attribution {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 2rem;
 }
 
 /***************************************
@@ -410,6 +470,35 @@ tbody td {
 }
 
 /* Changelog Styles */
+
+/* Remove list indentation for changelog */
+.version-entry ul {
+    margin-left: 0;
+    padding-left: 1.2rem;
+}
+        
+.version-entry {
+    margin-bottom: 2rem;
+}
+        
+.version-header {
+    margin-bottom: 0.5rem;
+}
+        
+.version-header h6 {
+    margin: 0;
+    font-size: var(--text-h6);
+    text-transform: none;
+    letter-spacing: normal;
+}
+        
+.version-date {
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+    margin-bottom: 1rem;
+    display: block;
+}
+
 /* Unreleased Section */
 .unreleased-section {
     margin: 2rem 0;
@@ -421,6 +510,11 @@ tbody td {
 
 .unreleased-section h6 {
     margin-bottom: 1rem;
+}
+
+.unreleased-section ul {
+    margin-left: 0;
+    padding-left: 1.2rem;
 }
 
 /* Changelog Table */

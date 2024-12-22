@@ -13,13 +13,13 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Changelog - History of updates and changes">
-    <meta name="keywords" content="Changelog, Updates, Version History">
-    <meta name="author" content="Bryan Robles">
-    
+    <meta name="description" content="Changelog - Version history and updates for DAVID.COMPUTER">
+    <meta name="keywords" content="Bryan David, DAVID.COMPUTER, Changelog, Updates, Version History">
+    <meta name="author" content="Bryan David">
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Changelog | Bryan Robles">
-    <meta property="og:description" content="History of website updates and changes">
+    <meta property="og:title" content="Changelog | DAVID.COMPUTER">
+    <meta property="og:description" content="Version history and updates for DAVID.COMPUTER">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://david.computer/changelog">
     
@@ -35,21 +35,7 @@
     
     <link rel="stylesheet" href="/styles.css">
     
-    <style>
-        .unreleased-section {
-            margin: 2rem 0;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--bg-primary);
-        }
-
-        .unreleased-section h6 {
-            margin-bottom: 1rem;
-        }
-    </style>
-    
-    <title>Changelog | Bryan Robles</title>
+    <title>Changelog | DAVID.COMPUTER</title>
 </head>
 <body class="index-page">
     <div class="container">
@@ -71,152 +57,186 @@
                     <ul>
                         <li>Better display on different screen sizes</li>
                         <li>More content for the pages</li>
+                        <li>RSS feed for updates</li>
+                        <li>Comments section for blog posts</li>
                     </ul>
                 </div>
                 
-                <table class="full-width-table changelog-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Version</th>
-                            <th>Changes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>DEC 21, 2024</td>
-                            <td>v0.6.5</td>
-                            <td>
+                <article>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.6</h6>
+                            <time class="version-date">Released December 22, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Improved changelog readability with new hierarchical format</li>
+                            <li>Updated URL structure for better clarity</li>
+                        </ul>
+                    </div>
+                    
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.5</h6>
+                            <time class="version-date">Released December 21, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Added tag filtering system to Updates page</li>
+                            <li>Updated theme toggle with custom SVG icons</li>
+                            <li>Added 404 error page</li>
+                            <li>Added dark/light mode preference persistence between visits</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.4</h6>
+                            <time class="version-date">Released December 14, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Implemented flexible grid system for content displays
                                 <ul>
-                                    <li>Added tag filtering system to Updates page</li>
-                                    <li>Updated theme toggle with custom SVG icons</li>
-                                    <li>Added 404 error page</li>
-                                    <li>Added dark/light mode preference persistence between visits</li>
+                                    <li>Added three grid sizes (small, medium, large)</li>
+                                    <li>Added grid item styling with optional captions</li>
+                                    <li>Added alignment options (left, center, right)</li>
+                                    <li>Added mobile-friendly image display options</li>
+                                    <li>Added pixel art modifier for sprite displays</li>
                                 </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 14, 2024</td>
-                            <td>v0.6.4</td>
-                            <td>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.3</h6>
+                            <time class="version-date">Released December 13, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Added 'who' page with personal introduction and photo</li>
+                            <li>Implemented reusable image styling system
                                 <ul>
-                                    <li>Implemented flexible grid system for content displays
-                                        <ul>
-                                            <li>Added three grid sizes (small, medium, large)</li>
-                                            <li>Added grid item styling with optional captions</li>
-                                            <li>Added alignment options (left, center, right)</li>
-                                            <li>Added mobile-friendly image display options</li>
-                                            <li>Added pixel art modifier for sprite displays</li>
-                                        </ul>
-                                    </li>
+                                    <li>Added responsive image layout classes</li>
+                                    <li>Added utility classes for image sizing and positioning</li>
+                                    <li>Added navigation breadcrumbs in the footer</li>
+                                    <li>Added mobile-friendly image display options</li>
                                 </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 13, 2024</td>
-                            <td>v0.6.3</td>
-                            <td>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.2</h6>
+                            <time class="version-date">Released December 13, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Added this changelog page to track website updates</li>
+                            <li>Made the version number in the footer clickable to access the changelog</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.1</h6>
+                            <time class="version-date">Released December 12, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Fixed the white flash when switching between pages in dark mode</li>
+                            <li>Made links in tables more visible by adding underlines</li>
+                            <li>Fixed the website title appearing off-center on mobile phones</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.6.0</h6>
+                            <time class="version-date">Released December 11, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Added dark mode option (click the moon icon in the footer to try it!)</li>
+                            <li>Added website icon that appears in browser tabs</li>
+                            <li>Added typing animation to homepage title</li>
+                            <li>Added tags to blog posts for easier navigation</li>
+                            <li>Gave the website a consistent look across all pages:
                                 <ul>
-                                    <li>Added 'who' page with personal introduction and photo</li>
-                                    <li>Implemented reusable image styling system
-                                        <ul>
-                                            <li>Added responsive image layout classes</li>
-                                            <li>Added utility classes for image sizing and positioning</li>
-                                            <li>Added navigation breadcrumbs in the footer</li>
-                                            <li>Added mobile-friendly image display options</li>
-                                        </ul>
-                                    </li>
+                                    <li>New fonts: Roboto Mono for titles, Atkinson Hyperlegible for reading</li>
+                                    <li>Added decorative dotted lines around page titles</li>
+                                    <li>Added navigation breadcrumbs in the footer</li>
+                                    <li>Made all headings consistent in size</li>
                                 </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 13, 2024</td>
-                            <td>v0.6.2</td>
-                            <td>
-                                <ul>
-                                    <li>Added this changelog page to track website updates</li>
-                                    <li>Made the version number in the footer clickable to access the changelog</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 12, 2024</td>
-                            <td>v0.6.1</td>
-                            <td>
-                                <ul>
-                                    <li>Fixed the white flash when switching between pages in dark mode</li>
-                                    <li>Made links in tables more visible by adding underlines</li>
-                                    <li>Fixed the website title appearing off-center on mobile phones</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 11, 2024</td>
-                            <td>v0.6.0</td>
-                            <td>
-                                <ul>
-                                    <li>Added dark mode option (click the moon icon in the footer to try it!)</li>
-                                    <li>Added website icon that appears in browser tabs</li>
-                                    <li>Added typing animation to homepage title</li>
-                                    <li>Added tags to blog posts for easier navigation</li>
-                                    <li>Gave the website a consistent look across all pages:
-                                        <ul>
-                                            <li>New fonts: Roboto Mono for titles, Atkinson Hyperlegible for reading</li>
-                                            <li>Added decorative dotted lines around page titles</li>
-                                            <li>Added navigation breadcrumbs in the footer</li>
-                                            <li>Made all headings consistent in size</li>
-                                        </ul>
-                                    </li>
-                                    <li>Added security features and improved search engine visibility</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 10, 2024</td>
-                            <td>v0.5.6</td>
-                            <td>
-                                <ul>
-                                    <li>Improved how tables look and are organized</li>
-                                    <li>Updated contact email address</li>
-                                    <li>Made some changes to text sizes and fonts</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 06, 2024</td>
-                            <td>v0.5.5</td>
-                            <td>
-                                <ul>
-                                    <li>Fixed some spelling mistakes</li>
-                                    <li>Updated how tables are displayed</li>
-                                    <li>Improved how I update the website</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 05, 2024</td>
-                            <td>v0.5.0</td>
-                            <td>
-                                <ul>
-                                    <li>Added links to my social media profiles</li>
-                                    <li>Connected david.computer domain to the website</li>
-                                    <li>Created initial structure for Updates and Cats sections</li>
-                                    <li>Added LinkedIn profile link</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DEC 03, 2024</td>
-                            <td>v0.1.0</td>
-                            <td>
-                                <ul>
-                                    <li>First version of the website</li>
-                                    <li>Basic layout and styling</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </li>
+                            <li>Added security features and improved search engine visibility</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.5.6</h6>
+                            <time class="version-date">Released December 10, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Improved how tables look and are organized</li>
+                            <li>Updated contact email address</li>
+                            <li>Made some changes to text sizes and fonts</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.5.5</h6>
+                            <time class="version-date">Released December 6, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Fixed some spelling mistakes</li>
+                            <li>Updated how tables are displayed</li>
+                            <li>Improved how I update the website</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.5.0</h6>
+                            <time class="version-date">Released December 5, 2024</time>
+                        </div>
+                        <ul>
+                            <li>Added links to my social media profiles</li>
+                            <li>Connected david.computer domain to the website</li>
+                            <li>Created initial structure for Updates and Cats sections</li>
+                            <li>Added LinkedIn profile link</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.1.0</h6>
+                            <time class="version-date">Released December 3, 2024</time>
+                        </div>
+                        <ul>
+                            <li>First version of the website</li>
+                            <li>Basic layout and styling</li>
+                        </ul>
+                    </div>
+                </article>
             </section>
         </main>
 
@@ -225,7 +245,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <p><a href="/">Home</a> / <a href="./index.html" class="current-page">Changelog</a></p>
-                    <p>&copy; 2024 Bryan Robles</p>
+                    <p>&copy; 2024 • DAVID.COMPUTER</p>
                 </div>
                 <div class="footer-right">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">

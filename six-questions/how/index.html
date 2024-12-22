@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="How DAVID.COMPUTER was built - Technical details and implementation">
+    <meta name="keywords" content="web development, HTML, CSS, JavaScript, personal website">
+    <meta name="author" content="Bryan David">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="How | DAVID.COMPUTER">
+    <meta property="og:description" content="How DAVID.COMPUTER was built - Technical details and implementation">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://david.computer/w/how/">
+    
+    <!-- External Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    
+    <title>How | DAVID.COMPUTER</title>
+</head>
+<body class="content-page">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
+        </header>
+
+        <main>
+            <article>
+                <div class="entry-title">
+                    <h5>How This Site Works</h5>
+                </div>
+
+                <h6>Overview</h6>
+                <p>DAVID.COMPUTER is a personal website built from scratch using fundamental web technologies. The site draws inspiration from two beautifully designed personal websites: <a href="https://liza.io/" target="_blank" rel="noopener noreferrer">liza.io</a> and <a href="https://neil.computer/" target="_blank" rel="noopener noreferrer">neil.computer</a>.</p>
+
+                <h6>Technology Stack</h6>
+                <p>The website is intentionally built using only core web technologies, without any frameworks or build tools.</p>
+                <ul>
+                    <li>HTML5 for structure and semantic markup</li>
+                    <li>CSS3 for styling and animations</li>
+                    <li>Vanilla JavaScript for interactivity and theme switching</li>
+                </ul>
+
+                <h6>Key Features</h6>
+                <p>The site includes several notable features:</p>
+                <ul>
+                    <li>Responsive design that adapts to different screen sizes</li>
+                    <li>Dark/light theme toggle with persistent user preference</li>
+                    <li>CSS variables for consistent theming</li>
+                    <li>Custom typewriter animation effect</li>
+                    <li>Semantic HTML for accessibility</li>
+                    <li>Mobile-first approach to styling</li>
+                </ul>
+
+                <h6>Hosting and Domain</h6>
+                <p>The website is hosted using GitHub Pages, which provides free hosting for static websites directly from a GitHub repository. The domain name "david.computer" was registered through Porkbun, a domain registrar known for competitive pricing and good customer service.</p>
+
+                <h6>Version Control and Updates</h6>
+                <p>All changes to the website are tracked through Git and hosted on GitHub. Visitors can view the progression of the site through the <a href="/changelog">Changelog</a>, which documents all updates, improvements, and fixes.</p>
+
+                <h6>Directory Structure</h6>
+                <p>The website follows a simple and organized structure:</p>
+                <ul>
+                    <li>index.html - Main landing page</li>
+                    <li>styles.css - Global stylesheet</li>
+                    <li>script.js - JavaScript functionality</li>
+                    <li>/w/ - Content pages directory</li>
+                    <li>/assets/ - Static assets (favicons, etc.)</li>
+                    <li>/updates/ - Blog posts and updates</li>
+                    <li>/projects/ - Project showcases</li>
+                </ul>
+
+                <h6>Security Considerations</h6>
+                <p>The site implements several security best practices:</p>
+                <ul>
+                    <li>Content Security Policy headers</li>
+                    <li>HTTPS enforcement</li>
+                    <li>Secure external link handling</li>
+                    <li>No sensitive data or server-side processing</li>
+                    <li>Minimal JavaScript with no external dependencies</li>
+                </ul>
+
+                <h6>A Note on Transparency</h6>
+                <p>Sharing these technical details is a common practice in the web development community. Since this is a static website with no backend or sensitive data, being open about its implementation poses no security risk. In fact, this transparency can help other developers learn and potentially contribute improvements.</p>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="/">Home</a> / <a href="/six-questions/">Six Questions</a> / <a href="/six-questions/how/" class="current-page">How</a></p>
+                    <p>&copy; 2024 • DAVID.COMPUTER</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
+</body>
+</html>
