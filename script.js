@@ -28,25 +28,56 @@ function initTheme() {
 function initTagFiltering() {
     const tags = document.querySelectorAll('.tag');
     const tableRows = document.querySelectorAll('.full-width-table tbody tr');
+    const entries = document.querySelectorAll('.entry');
     let activeTag = null;
-    
-    // Check for tag parameter in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const tagParam = urlParams.get('tag');
-    
-    function updateTable(selectedTag) {
-        tableRows.forEach(row => {
-            const rowTags = Array.from(row.querySelectorAll('.tag'))
-                .map(tag => tag.textContent.trim());
-            
-            if (!selectedTag || rowTags.includes(selectedTag)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
+
+    // Get current tag from URL
+    function getCurrentTag() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('tag');
     }
-    
+
+    // Update URL and history
+    function updateHistory(tag) {
+        const newUrl = tag 
+            ? `${window.location.pathname}?tag=${encodeURIComponent(tag)}`
+            : window.location.pathname;
+        
+        history.pushState({ tag }, '', newUrl);
+    }
+
+    // Update content visibility based on tag
+    function updateContent(selectedTag) {
+        // Update table rows if they exist
+        if (tableRows.length > 0) {
+            tableRows.forEach(row => {
+                const rowTags = Array.from(row.querySelectorAll('.tag'))
+                    .map(tag => tag.textContent.trim());
+                
+                if (!selectedTag || rowTags.includes(selectedTag)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Update entries if they exist
+        if (entries.length > 0) {
+            entries.forEach(entry => {
+                const entryTags = Array.from(entry.querySelectorAll('.tag'))
+                    .map(tag => tag.textContent.trim());
+                
+                if (!selectedTag || entryTags.includes(selectedTag)) {
+                    entry.style.display = '';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    // Update visual state of tags
     function updateTagStates(selectedTag) {
         tags.forEach(tag => {
             if (tag.textContent.trim() === selectedTag) {
@@ -56,46 +87,47 @@ function initTagFiltering() {
             }
         });
     }
-    
-    // Handle tag clicks in the updates index
-    if (tableRows.length > 0) {
-        tags.forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tagName = tag.textContent.trim();
-                
-                if (activeTag === tagName) {
-                    activeTag = null;
-                    tags.forEach(t => t.classList.remove('active'));
-                    history.pushState({}, '', window.location.pathname);
-                } else {
-                    activeTag = tagName;
-                    updateTagStates(tagName);
-                    history.pushState({}, '', `?tag=${encodeURIComponent(tagName)}`);
-                }
-                
-                updateTable(activeTag);
-            });
-        });
-        
-        // Apply filter from URL parameter if it exists
-        if (tagParam) {
-            activeTag = decodeURIComponent(tagParam);
-            updateTagStates(activeTag);
-            updateTable(activeTag);
-        }
-    }
-    
-    // Handle tags in blog entries
-    if (document.querySelector('.entry-tags')) {
-        const entryTags = document.querySelectorAll('.entry-tags .tag');
-        entryTags.forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tagName = tag.textContent.trim();
+
+    // Handle tag clicks
+    tags.forEach(tag => {
+        tag.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tagName = tag.textContent.trim();
+
+            // If we're in an entry page, navigate to index with tag
+            if (document.querySelector('.entry-tags')) {
                 window.location.href = `/updates/index.html?tag=${encodeURIComponent(tagName)}`;
-            });
+                return;
+            }
+
+            // Toggle tag if clicking active tag
+            if (activeTag === tagName) {
+                activeTag = null;
+                tags.forEach(t => t.classList.remove('active'));
+                updateHistory('');
+            } else {
+                activeTag = tagName;
+                updateTagStates(tagName);
+                updateHistory(tagName);
+            }
+            
+            updateContent(activeTag);
         });
+    });
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', (event) => {
+        activeTag = event.state?.tag || getCurrentTag();
+        updateTagStates(activeTag);
+        updateContent(activeTag);
+    });
+
+    // Initial state from URL
+    const initialTag = getCurrentTag();
+    if (initialTag) {
+        activeTag = decodeURIComponent(initialTag);
+        updateTagStates(activeTag);
+        updateContent(activeTag);
     }
 }
 

@@ -750,7 +750,7 @@ a {
     text-decoration: none;
     color: var(--text-primary);
     display: inline-block;
-    padding: 3px;
+    padding: 4px;
     background-color: var(--link-bg);
     border-radius: 4px;
     transition: background-color 0.2s ease;
@@ -798,7 +798,7 @@ header h4 a:hover {
 .footer-nav .current-page {
     color: var(--text-primary);
     background-color: var(--link-bg);
-    padding: 3px;
+    padding: 4px;
     border-radius: 4px;
 }
 
@@ -814,6 +814,8 @@ footer a {
     text-decoration: none;
     padding: 0;
     transition: color 0.2s ease;
+    text-decoration: underline;
+
 }
 
 footer a:hover {
@@ -900,6 +902,14 @@ footer a:hover {
     background-color: #f3e5f5; 
 }
 
+/* Update tag styles to ensure colors are applied */
+.tag[data-type="meta"] { 
+    background-color: #e0f2f1; 
+}
+.tag[data-type="blog"] { 
+    background-color: #f3e5f5; 
+}
+
 /* Dark mode tag colors */
 [data-theme="dark"] .tag[href*="meta"],
 [data-theme="dark"] .tag:not([href])[data-tag="meta"] { 
@@ -907,6 +917,14 @@ footer a:hover {
 }
 [data-theme="dark"] .tag[href*="blog"],
 [data-theme="dark"] .tag:not([href])[data-tag="blog"] { 
+    background-color: #4a148c; 
+}
+
+/* Dark mode tag colors */
+[data-theme="dark"] .tag[data-type="meta"] { 
+    background-color: #004d40; 
+}
+[data-theme="dark"] .tag[data-type="blog"] { 
     background-color: #4a148c; 
 }
 
@@ -962,6 +980,32 @@ hr {
 /***************************************
  * 11. FOOTER STYLES
 ***************************************/
+.entry-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.entry-meta {
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+}
+
+.entry-meta time {
+    text-align: right;
+}
+
+/* For entries without tags */
+.entry-footer {
+    justify-content: space-between;  /* This ensures spacing even without tags */
+}
+
+.entry-footer .entry-tags:empty {
+    min-width: 1px;  /* Ensures the flex layout maintains spacing even when empty */
+}
 
 /* Footer Navigation */
 .footer-nav {
@@ -1060,6 +1104,17 @@ footer {
 ***************************************/
 
 @media (max-width: 37.5rem) {
+        
+    /* Increase icon size for mobile */
+    .icon-container i {
+        font-size: 32px; /* Increased from 24px */
+    }
+
+    .icon-container {
+        gap: 1.2rem; /* Increased spacing between icons */
+        margin-bottom: 2rem; /* Add space below icons */
+    }
+
     .table-container {
         flex-direction: column;
         align-items: stretch;
@@ -1107,9 +1162,8 @@ footer {
         --text-h1: 8rem;
     }
     footer p {
-        line-height: 0.4; /* More space only when needed */
-        margin-bottom: 0.2rem; /* Space between paragraphs instead */
-        font-size: 0.618rem;
+        line-height: 1.2; /* More space only when needed */
+        margin-bottom: 0; /* Space between paragraphs instead */
     }
 
     .footer-content {
