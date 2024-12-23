@@ -986,7 +986,7 @@ hr {
     align-items: center;
     margin-top: 0;
     padding-top: 0;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--link-bg);
 }
 
 .entry-meta {
