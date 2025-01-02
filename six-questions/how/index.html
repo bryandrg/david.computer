@@ -14,32 +14,31 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="How DAVID.COMPUTER was built - Technical details and implementation">
-    <meta name="keywords" content="web development, HTML, CSS, JavaScript, personal website">
+    <meta name="description" content="How - Technical details about DAVID.COMPUTER">
+    <meta name="keywords" content="Bryan David, DAVID.COMPUTER, Web Development, Technical Stack">
     <meta name="author" content="Bryan David">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="How | DAVID.COMPUTER">
-    <meta property="og:description" content="How DAVID.COMPUTER was built - Technical details and implementation">
+    <meta property="og:description" content="Technical details about DAVID.COMPUTER">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://david.computer/w/how/">
-
+    <meta property="og:url" content="https://david.computer/six-questions/how/">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/site.webmanifest" />
-
+    
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
     
     <link rel="stylesheet" href="/styles.css">
     <title>How | DAVID.COMPUTER</title>
 </head>
 <body class="content-page">
     <div class="container">
-        
         <!-- Header -->
         <header>
             <div>
@@ -50,72 +49,38 @@
         <main>
             <article>
                 <div class="entry-title">
-                    <h5>How This Site Works</h5>
+                    <h5>How</h5>
                 </div>
-
-                <h6>Overview</h6>
-                <p>DAVID.COMPUTER is a personal website built from scratch using fundamental web technologies. The site draws inspiration from two beautifully designed personal websites: <a href="https://liza.io/" target="_blank" rel="noopener noreferrer">liza.io</a> and <a href="https://neil.computer/" target="_blank" rel="noopener noreferrer">neil.computer</a>.</p>
-
-                <h6>Technology Stack</h6>
-                <p>The website is intentionally built using only core web technologies, without any frameworks or build tools.</p>
-                <ul>
-                    <li>HTML5 for structure and semantic markup</li>
-                    <li>CSS3 for styling and animations</li>
-                    <li>Vanilla JavaScript for interactivity and theme switching</li>
-                </ul>
-
-                <h6>Key Features</h6>
-                <p>The site includes several notable features:</p>
-                <ul>
-                    <li>Responsive design that adapts to different screen sizes</li>
-                    <li>Dark/light theme toggle with persistent user preference</li>
-                    <li>CSS variables for consistent theming</li>
-                    <li>Custom typewriter animation effect</li>
-                    <li>Semantic HTML for accessibility</li>
-                    <li>Mobile-first approach to styling</li>
-                </ul>
-
-                <h6>Hosting and Domain</h6>
-                <p>The website is hosted using GitHub Pages, which provides free hosting for static websites directly from a GitHub repository. The domain name "david.computer" was registered through Porkbun, a domain registrar known for competitive pricing and good customer service.</p>
-
-                <h6>Version Control and Updates</h6>
-                <p>All changes to the website are tracked through Git and hosted on GitHub. Visitors can view the progression of the site through the <a href="/changelog">Changelog</a>, which documents all updates, improvements, and fixes.</p>
-
-                <h6>Directory Structure</h6>
-                <p>The website follows a simple and organized structure:</p>
-                <ul>
-                    <li>index.html - Main landing page</li>
-                    <li>styles.css - Global stylesheet</li>
-                    <li>script.js - JavaScript functionality</li>
-                    <li>/w/ - Content pages directory</li>
-                    <li>/assets/ - Static assets (favicons, etc.)</li>
-                    <li>/updates/ - Blog posts and updates</li>
-                    <li>/projects/ - Project showcases</li>
-                </ul>
-
-                <h6>Security Considerations</h6>
-                <p>The site implements several security best practices:</p>
-                <ul>
-                    <li>Content Security Policy headers</li>
-                    <li>HTTPS enforcement</li>
-                    <li>Secure external link handling</li>
-                    <li>No sensitive data or server-side processing</li>
-                    <li>Minimal JavaScript with no external dependencies</li>
-                </ul>
-
-                <h6>A Note on Transparency</h6>
-                <p>Sharing these technical details is a common practice in the web development community. Since this is a static website with no backend or sensitive data, being open about its implementation poses no security risk. In fact, this transparency can help other developers learn and potentially contribute improvements.</p>
                 
-                <div class="entry-footer">
-                    <div class="entry-meta">
-                        <time datetime="2024-12-22">December 22, 2024</time>
-                    </div>
-                    <div class="entry-tags">
-                        <!-- Empty but maintains space -->
-                    </div>
-                </div>
+                <p>This website was built from the ground up using HTML, CSS, and JavaScript—intentionally 
+                    keeping things simple and lightweight. No frameworks, no tracking scripts, no unnecessary 
+                    complications. It is currently hosted on GitHub and the domain was acquired through Porkbun.</p>
+                
+                <p>True to the principles outlined in the 'Why' section, this site respects your privacy. 
+                    There are no analytics, no cookies (except for saving your theme preference locally), 
+                    and no data collection of any kind. The only JavaScript here handles the dark/light 
+                    mode toggle, tag filtering for updates, and basic page functionality. Even the theme 
+                    preference is stored in your browser's localStorage rather than cookies, keeping things 
+                    privacy-friendly.</p>
+                
+                <p>The only external resources loaded are the fonts and icons needed to make the site 
+                    functional and readable. Everything else is plain, vanilla code with no frameworks 
+                    or third-party services tracking your activity.</p>
+                
+                <p>If there are any significant changes in the way this site works, you'll find out through 
+                    this page or the <a href="/changelog">Changelog</a>.</p>
             </article>
         </main>
+
+        <!-- Entry footer -->
+        <div class="entry-footer">
+            <div class="entry-meta">
+                <time datetime="2024-12-23">December 23, 2024</time>
+            </div>
+            <div class="entry-tags">
+                <!-- Empty but maintains space -->
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer>
