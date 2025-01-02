@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Graduation Announcement - B.S. in Computer Science from NMSU">
+    <meta name="keywords" content="Bryan David, DAVID.COMPUTER, NMSU, Graduation, Computer Science">
+    <meta name="author" content="Bryan David">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Graduation Announcement | DAVID.COMPUTER">
+    <meta property="og:description" content="Graduating with a B.S. in Computer Science from New Mexico State University">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://david.computer/updates/graduation-announcement.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
+    
+    <link rel="stylesheet" href="/styles.css">
+    <title>Graduation Announcement | DAVID.COMPUTER</title>
+</head>
+<body class="content-page">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
+        </header>
+
+        <main>
+            <article>
+                <div class="entry-title">
+                    <h5>I've Graduated!</h5>
+                </div>
+
+                <!-- Graduation handshake photo -->
+                <div class="content-with-image balanced">
+                    <img src="/images/updates/graduation/handshake.jpg" alt="Receiving my certificate from the dean">
+                    <div class="content-area">
+                        <p>I'm thrilled to share that I've recently graduated from New Mexico State University 
+                            with a B.S. in Computer Science! My academic journey has been quite the adventure 
+                            - I started back in 2018 through the Aggie Pathway program, taking my initial 
+                            courses at Doña Ana Community College before transferring to NMSU. Initially, I 
+                            pursued Physics and was thriving in the Honors College with several scholarships 
+                            under my belt.</p>
+
+                        <p>Then came the pandemic around my junior year, and like many others, I found myself 
+                            struggling with the transition to online learning. After some challenging 
+                            experiences with advanced math courses and deep reflection about my future path, I 
+                            realized that while Physics had been fascinating, my heart was pulling me in a 
+                            different direction. Computer Science had always been on my radar - after all, I'd 
+                            grown up around computers, and it was one of my top choices even before college.</p>
+                    </div>
+                </div>
+                <p>In Spring 2022, I made the switch to Computer Science, and it felt right. While my journey 
+                    took longer than the traditional four-year path, every step proved valuable. Those 
+                    high-level Physics and Math courses, and even my later CS classes where I worked alongside 
+                    graduate students, all contributed to a rich, interdisciplinary perspective that I wouldn't 
+                    trade for anything.</p>
+
+                <p>As I became more comfortable with my CS coursework, I was able to reconnect with my passion 
+                    for art. While I was developing my skills in traditional mediums like charcoal drawing and 
+                    photography, my HCI coursework opened my eyes to something fascinating: the principles of 
+                    creating beauty could extend into software development. It was one of those wonderful 'aha' 
+                    moments when you realize that creativity transcends mediums - whether it's charcoal on 
+                    paper or code on a screen, the fundamental appreciation for aesthetics and user experience 
+                    remains the same. This parallel journey in traditional art flourished, leading to my work 
+                    being displayed at <a href="/events/milagro-coffee-exhibition.html">Milagro Coffee Y Espresso</a> 
+                    and culminating in my first solo exhibition at <a href="/events/hoja-al-viento.html">Cruces Creatives</a> 
+                    in November 2024 - a milestone I never would have imagined when I started college!</p>
+
+                <p>This graduation represents more than just an academic achievement - it's a testament to 
+                    finding your own path, even when it's not the most direct route. It's about discovering how 
+                    different passions - technology, physics, and art - can weave together to create something 
+                    unique. I'm excited to bring this multifaceted perspective to my future projects!</p>
+
+                <!-- Graduation cap photo -->
+                <div class="content-with-image">
+                    <img src="/images/updates/graduation/cap.webp" alt="My decorated graduation cap">
+                </div>
+
+                <blockquote>
+                    "The minute we left, we started going home, and we are still going home. 
+                    I am still on my journey home."
+                </blockquote>
+                <p class="quote-attribution">— Jonas Mekas, <em>Reminiscences of a Journey to Lithuania</em> (1972)</p>
+
+                <!-- Entry footer -->
+                <div class="entry-footer">
+                    <div class="entry-meta">
+                        <time datetime="2024-12-14">December 14, 2024</time>
+                    </div>
+                    <div class="entry-tags">
+                        <a href="#" class="tag" data-type="life">life</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p><a href="/">Home</a> / <a href="/updates/">Updates</a> / <a href="/updates/graduation-announcement.html" class="current-page">I've Graduated!</a></p>
+                    <p>&copy; 2024 • DAVID.COMPUTER</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
+</body>
+</html>

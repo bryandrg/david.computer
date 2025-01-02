@@ -132,6 +132,14 @@ body, html {
 .content-page main article p a {
     text-indent: 0;
     display: inline; /* This ensures inline behavior */
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.content-page main article p a:hover {
+    background: none;
+    color: var(--text-secondary);
 }
 
 /***************************************
@@ -439,19 +447,19 @@ tbody td {
 /* Column Widths for Full-width Tables */
 .full-width-table td:first-child,
 .full-width-table th:first-child {
-    width: 18%;
+    width: 17%;
     text-align: left;
 }
 
 .full-width-table td:nth-child(2),
 .full-width-table th:nth-child(2) {
-    width: 62%;
+    /* width: 62%; */
     text-align: left;
 }
 
 .full-width-table td:last-child,
 .full-width-table th:last-child {
-    width: 20%;
+    width: 33%;
     text-align: right;
 }
 
@@ -683,6 +691,20 @@ img {
     width: 45%;
 }
 
+.content-page .content-with-image:not(.balanced) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.content-page .content-with-image:not(.balanced) img {
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto;
+}
+
 /* Image size utilities */
 .image-small {
     width: 200px;
@@ -832,7 +854,7 @@ footer a:hover {
 }
 
 .icon-container i {
-    font-size: 24px;
+    font-size: 24px;    /* Change icon sizes */
     color: var(--text-primary);
     transition: color 0.2s, transform 0.2s;
 }
@@ -895,19 +917,26 @@ footer a:hover {
 /* Tag colors */
 .tag[href*="meta"], 
 .tag:not([href])[data-tag="meta"] { 
-    background-color: #e0f2f1; 
+    background-color: #b2dfdb; 
 }
 .tag[href*="blog"], 
 .tag:not([href])[data-tag="blog"] { 
-    background-color: #f3e5f5; 
+    background-color: #e1bee7; 
+}
+.tag[href*="life"],
+.tag:not([href])[data-tag="blog"] { 
+    background-color: #c8e6c9; 
 }
 
 /* Update tag styles to ensure colors are applied */
 .tag[data-type="meta"] { 
-    background-color: #e0f2f1; 
+    background-color: #b2dfdb; 
 }
 .tag[data-type="blog"] { 
-    background-color: #f3e5f5; 
+    background-color: #e1bee7; 
+}
+.tag[data-type="life"] { 
+    background-color: #c8e6c9; 
 }
 
 /* Dark mode tag colors */
@@ -919,6 +948,11 @@ footer a:hover {
 [data-theme="dark"] .tag:not([href])[data-tag="blog"] { 
     background-color: #4a148c; 
 }
+[data-theme="dark"] .tag[href*="life"],
+[data-theme="dark"] .tag:not([href])[data-tag="life"] { 
+    background-color: #1b5e20; 
+}
+
 
 /* Dark mode tag colors */
 [data-theme="dark"] .tag[data-type="meta"] { 
@@ -926,6 +960,9 @@ footer a:hover {
 }
 [data-theme="dark"] .tag[data-type="blog"] { 
     background-color: #4a148c; 
+}
+[data-theme="dark"] .tag[data-type="life"] { 
+    background-color: #1b5e20; 
 }
 
 /* Active state overrides specific colors */
@@ -968,6 +1005,12 @@ blockquote {
     padding-left: 1rem;
     border-left: 3px solid var(--border-color);
     color: var(--blockquote-color);
+}
+.quote-attribution {
+    text-align: right;
+    margin-top: -1rem;  /* Reduces space between quote and attribution */
+    font-size: 1.1rem;  /* Slightly larger text */
+    color: var(--text-secondary);
 }
 
 /* Horizontal Rule */
@@ -1039,6 +1082,22 @@ footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.event-details .label {
+    font-weight: bold;
+}
+
+.duration, .location {
+    display: flex;
+    gap: 0.25rem;
 }
 
 /* Theme Toggle Button */
@@ -1137,24 +1196,52 @@ footer {
 
     .content-with-image {
         flex-direction: column;
+        margin: 1rem 0;
     }
     
-    .content-with-image.balanced img,
+    .content-with-image.balanced img {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .content-page .content-with-image:not(.balanced) img {
+        max-width: 90%;
+
+    }
+
     .content-with-image.balanced .content-area {
         width: 100%; /* Full width on mobile */
     }
     
-    /* Ensure all images take full width when stacked */
+    /* Ensure all images take almost full width when stacked */
     .content-with-image img {
-        width: 100%;
-        max-width: 100%;
+        width: 99%;
+        margin: 0 auto;
+        display: block;
     }
     
     /* Reset content area to full width */
     .content-with-image .content-area {
         width: 100%;
     }
+
+    .content-with-image.balanced p:nth-child(1) {
+        margin-top: 0px;
+    }
+
+    .content-with-image.balanced p:last-child {
+        margin: 0;  /* Remove extra gap in mobile view */
+    }
+
+    blockquote {
+        font-size: 1rem;
+    }
     
+    .quote-attribution {
+        font-size: 1rem;
+    }
+
     :root {
         --container-padding: 16px;
         --section-spacing: 1.5rem;
