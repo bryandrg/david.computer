@@ -459,7 +459,7 @@ tbody td {
 
 .full-width-table td:last-child,
 .full-width-table th:last-child {
-    width: 33%;
+    width: 36%;
     text-align: right;
 }
 
@@ -707,7 +707,7 @@ img {
 
 /* Image size utilities */
 .image-small {
-    width: 200px;
+    width: 140px;
 }
 
 .image-medium {
@@ -866,10 +866,10 @@ footer a:hover {
 /* Tag Styles */
 .tag {
     display: inline-block;
-    padding: 2px 8px;
-    margin-left: 0.5rem;
+    padding: 2px 4px;
+    margin-left: 0rem;
     border-radius: 4px;
-    font-size: 0.85em;
+    font-size: 0.8em;
     background-color: var(--link-bg);
     color: var(--text-primary);
     text-decoration: none;
@@ -927,6 +927,23 @@ footer a:hover {
 .tag:not([href])[data-tag="blog"] { 
     background-color: #c8e6c9; 
 }
+.tag[href*="notes"], 
+.tag:not([href])[data-tag="notes"] { 
+    background-color: #e3f2fd; 
+}
+.tag[href*="films"],
+.tag:not([href])[data-tag="films"] { 
+    background-color: #fff3e0; 
+}
+.tag[href*="books"], 
+.tag:not([href])[data-tag="books"] { 
+    background-color: #e8eaf6; 
+}
+.tag[href*="music"], 
+.tag:not([href])[data-tag="music"] { 
+    background-color: #fce4ec; 
+}
+
 
 /* Update tag styles to ensure colors are applied */
 .tag[data-type="meta"] { 
@@ -937,6 +954,21 @@ footer a:hover {
 }
 .tag[data-type="life"] { 
     background-color: #c8e6c9; 
+}
+.tag[data-type="notes"] { 
+    background-color: #e3f2fd; /* Light blue */
+}
+.tag[data-type="life"] { 
+    background-color: #f1f8e9; /* Light green */
+}
+.tag[data-type="films"] { 
+    background-color: #fff3e0; /* Light orange */
+}
+.tag[data-type="books"] { 
+    background-color: #e8eaf6; /* Light indigo */
+}
+.tag[data-type="music"] { 
+    background-color: #fce4ec; /* Light pink */
 }
 
 /* Dark mode tag colors */
@@ -952,9 +984,23 @@ footer a:hover {
 [data-theme="dark"] .tag:not([href])[data-tag="life"] { 
     background-color: #1b5e20; 
 }
+[data-theme="dark"] .tag[href*="notes"],
+[data-theme="dark"] .tag:not([href])[data-tag="notes"] { 
+    background-color: #0d47a1; 
+}
+[data-theme="dark"] .tag[href*="films"],
+[data-theme="dark"] .tag:not([href])[data-tag="films"] { 
+    background-color: #e65100; 
+}
+[data-theme="dark"] .tag[href*="books"],
+[data-theme="dark"] .tag:not([href])[data-tag="books"] { 
+    background-color: #1a237e; 
+}
+[data-theme="dark"] .tag[href*="music"],
+[data-theme="dark"] .tag:not([href])[data-tag="music"] { 
+    background-color: #880e4f; 
+}
 
-
-/* Dark mode tag colors */
 [data-theme="dark"] .tag[data-type="meta"] { 
     background-color: #004d40; 
 }
@@ -963,6 +1009,21 @@ footer a:hover {
 }
 [data-theme="dark"] .tag[data-type="life"] { 
     background-color: #1b5e20; 
+}
+[data-theme="dark"] .tag[data-type="notes"] { 
+    background-color: #0d47a1; /* Dark blue */
+}
+[data-theme="dark"] .tag[data-type="life"] { 
+    background-color: #1b5e20; /* Dark green */
+}
+[data-theme="dark"] .tag[data-type="films"] { 
+    background-color: #e65100; /* Dark orange */
+}
+[data-theme="dark"] .tag[data-type="books"] { 
+    background-color: #1a237e; /* Dark indigo */
+}
+[data-theme="dark"] .tag[data-type="music"] { 
+    background-color: #880e4f; /* Dark pink */
 }
 
 /* Active state overrides specific colors */
@@ -1232,6 +1293,25 @@ footer {
 
     .content-with-image.balanced p:last-child {
         margin: 0;  /* Remove extra gap in mobile view */
+    }
+
+    /* Reset float and align image center on mobile */
+    .image-left,
+    .image-right {
+        float: none;
+        margin: 1rem auto;  /* Center the image with auto margins */
+        display: block;     /* Ensures proper centering */
+    }
+
+    /* Ensure text indentation works on mobile */
+    .content-page main article p {
+        text-indent: 2em !important;  /* Force indentation */
+        clear: both;       /* Prevent float interference */
+    }
+
+    /* Exception for paragraphs containing images */
+    .content-page main article p:has(img) {
+        text-align: center;  /* Center the image container */
     }
 
     blockquote {
