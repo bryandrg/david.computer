@@ -1,23 +1,26 @@
 /***************************************
+ * DAVID.COMPUTER STYLESHEET
+ * Last updated: August 17, 2025
+
  * TABLE OF CONTENTS
- * 1. CSS Variables & Theme Settings
- * 2. Font Imports
- * 3. Basic Reset & General Styles
- * 4. Typography & Text Styles
- * 5. Layout & Container Styles
- * 6. Header & Navigation
- * 7. Table Styles
- * 8. Image Styles
- * 9. Link Styles
- * 10. Code & Blockquote Styles
- * 11. Footer Styles
- * 12. Animation Styles
- * 13. Responsive Design
+ *  1. CSS Variables & Theme Settings
+ *  2. Font Imports
+ *  3. Basic Reset & General Styles
+ *  4. Typography & Text Styles
+ *  5. Layout & Container Styles
+ *  6. Header & Navigation
+ *  7. Table Styles
+ *  8. Image & Media Styles
+ *  9. Link Styles
+ * 10. Tag System
+ * 11. Code & Blockquote Styles
+ * 12. Footer Styles
+ * 13. Animation Styles
+ * 14. Responsive Design
 ***************************************/
 
 /***************************************
  * 1. CSS VARIABLES & THEME SETTINGS
- * Edit these values to customize the site
 ***************************************/
 
 :root {
@@ -26,16 +29,16 @@
     --text-primary: #202020;        /* Main text color */
     --text-secondary: #777;         /* Secondary text color (used in footer, etc.) */
     --border-color: #202020;        /* Border color for tables, dividers */
-    --link-bg: #e0e0e0;            /* Link background color */
-    --link-hover: #d0d0d0;         /* Link hover background color */
+    --link-bg: #e0e0e0;             /* Link background color */
+    --link-hover: #d0d0d0;          /* Link hover background color */
     
     /* Code & Table Colors */
-    --code-bg: #f4f4f4;            /* Background color for code blocks */
-    --code-text: var(--text-primary);  /* Text color in code blocks */
-    --table-header-bg: #202020;    /* Table header background */
-    --table-header-text: #fffef1;  /* Table header text color */
-    --table-bg: var(--bg-primary); /* Table background color */
-    --blockquote-color: #555;      /* Blockquote text color */
+    --code-bg: #f4f4f4;             /* Background color for code blocks */
+    --code-text: var(--text-primary); /* Text color in code blocks */
+    --table-header-bg: #202020;     /* Table header background */
+    --table-header-text: #fffef1;   /* Table header text color */
+    --table-bg: var(--bg-primary);    /* Table background color */
+    --blockquote-color: #555;       /* Blockquote text color */
     
     /* Typography Weights */
     --table-header-weight: bold;
@@ -60,8 +63,8 @@
     --text-code: 1rem;             /* Code text size */
 
     /* Font Families */
-    --font-heading: "Roboto Mono", monospace;
-    --font-content: "Atkinson Hyperlegible", sans-serif;
+    --font-heading: "Roboto Mono", "SF Mono", "Monaco", "Consolas", monospace;
+    --font-content: "Atkinson Hyperlegible", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif;
 }
 
 /* Dark Theme Colors */
@@ -73,20 +76,17 @@
     --link-bg: #333;
     --link-hover: #444;
     --code-bg: #2d2d2d;
-    --code-text: #fffef1;          /* Code text color in dark mode */
+    --code-text: #fffef1;
     --table-header-bg: #000;
     --table-header-text: #fffef1;
-    --table-bg: #111;              /* Dark mode table background */
+    --table-bg: #111;
     --blockquote-color: #aaa;
 }
 
 /***************************************
- * 2. FONT IMPORTS
- * Google Fonts import for Roboto Mono and Atkinson Hyperlegible
+ * 2. FONT IMPORTS (DELETED)
+ * Fonts loaded via HTML links in head (faster)
 ***************************************/
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /***************************************
  * 3. BASIC RESET & GENERAL STYLES
@@ -120,18 +120,18 @@ body, html {
 /* Center article content */
 .content-page main article {
     max-width: 70ch;
-    margin: 0 auto;  /* This centers the article content */
+    margin: 0 auto;
 }
 
 .content-page main article p {
-    text-indent: 2em;  /* Only indent article paragraphs */
-    margin-bottom: 1rem; /* Consistent space between paragraphs */
+    text-indent: 2em;
+    margin-bottom: 1rem;
 }
 
-/* Override text-indent for links */
+/* Override text-indent for links in article paragraphs */
 .content-page main article p a {
     text-indent: 0;
-    display: inline; /* This ensures inline behavior */
+    display: inline;
     background: none;
     padding: 0;
     text-decoration: underline;
@@ -146,7 +146,7 @@ body, html {
  * 4. TYPOGRAPHY & TEXT STYLES
 ***************************************/
 
-/* Headers */
+/* Headers - Using cascade for common properties */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
 }
@@ -156,14 +156,16 @@ h1 {
     margin: 0 0 var(--element-spacing) 0;
 }
 
+h2, h3 {
+    margin: 0 0 0.2rem 0;
+}
+
 h2 {
     font-size: var(--text-h2);
-    margin: 0 0 0.2rem 0;
 }
 
 h3 {
     font-size: var(--text-h3);
-    margin: 0 0 0.2rem 0;
 }
 
 h4 {
@@ -212,6 +214,40 @@ ul, ol {
 
 li {
     margin-bottom: 0.5rem;
+    position: relative;
+}
+
+/* Slightly smaller bullet points with better alignment */
+ul li {
+    list-style: none; /* Remove default bullets */
+    position: relative;
+}
+
+ul li::before {
+    content: "•";
+    position: absolute;
+    left: -1.2rem;
+    font-size: 0.9em; /* Just slightly smaller than text */
+    line-height: 1.2; /* Better vertical alignment */
+    color: var(--text-primary);
+    top: 0.1em; /* Fine-tune vertical position */
+}
+
+/* Different bullet style for nested lists (hollow circle) */
+ul ul li::before {
+    content: "◦"; /* Hollow circle for sub-items */
+    font-size: 0.9em;
+}
+
+/* Fix #2: Better spacing for nested lists */
+li ul {
+    margin-top: 0.3rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Tighter spacing for nested list items */
+li ul li {
+    margin-bottom: 0.3rem;
 }
 
 /* Entry Title Styles */
@@ -219,9 +255,8 @@ li {
     position: relative;
     text-align: center;
     padding: 1rem 0;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
     width: fit-content;
-    margin: 0 auto;  /* Centers the container */
 }
 
 .entry-title::before,
@@ -236,7 +271,7 @@ li {
         var(--border-color) 1px, 
         transparent 1px
     );
-    background-size: 10px 2px;  /* First value controls spacing */
+    background-size: 10px 2px;
     background-position: center;
     background-repeat: repeat-x;
 }
@@ -270,6 +305,7 @@ hr {
     border-top: 1px solid var(--border-color);
 }
 
+/* Poem Container Styles */
 .poem-container {
     max-width: 600px;
     margin: 2rem auto;
@@ -282,8 +318,9 @@ hr {
     margin-bottom: 2rem;
 }
 
-.poem p {
+.content-page main article .poem p {
     margin-bottom: 1.5rem;
+    text-indent: 0; /* Remove inherited text indentation */
 }
 
 .poem a {
@@ -304,6 +341,7 @@ hr {
     margin-bottom: 3rem;
 }
 
+/* Navigation Links */
 .navigation-links {
     margin: 3rem auto;
     text-align: center;
@@ -318,6 +356,7 @@ hr {
     padding: 0.5rem 1rem;
 }
 
+/* Attribution */
 .attribution {
     font-size: 0.8rem;
     color: var(--text-secondary);
@@ -344,7 +383,6 @@ hr {
     margin-top: 0.2rem;
 }
 
-
 /***************************************
  * 6. HEADER & NAVIGATION
 ***************************************/
@@ -352,12 +390,31 @@ hr {
 header {
     text-align: center;
     margin-bottom: var(--section-spacing);
-    width: 100vw;  /* Full viewport width */
+    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+}
+
+header h4 {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+header h4 a {
+    text-decoration: underline;
+    background-color: transparent;
+    color: var(--text-primary);
+    padding: 0;
+    display: inline;
+    white-space: nowrap;
+}
+
+header h4 a:hover {
+    color: var(--text-secondary);
+    background-color: transparent;
 }
 
 .centered-links {
@@ -412,7 +469,6 @@ tbody td {
     gap: 20px;
 }
 
-/* Table and Icons Layout */
 .table-with-icons {
     position: relative;
     display: flex;
@@ -420,7 +476,7 @@ tbody td {
     gap: 0.1rem;
 }
 
-/* Updates Table */
+/* Full-width Table Specific Styles */
 .full-width-table {
     width: 100%;
     border-collapse: collapse;
@@ -453,7 +509,6 @@ tbody td {
 
 .full-width-table td:nth-child(2),
 .full-width-table th:nth-child(2) {
-    /* width: 62%; */
     text-align: left;
 }
 
@@ -477,29 +532,50 @@ tbody td {
     background: none;
 }
 
-/* Changelog Styles */
+/* Project Metadata Table */
+.project-meta {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
 
-/* Remove list indentation for changelog */
+.project-meta table {
+    width: 100%;
+    max-width: 600px;
+}
+
+.project-meta table td {
+    padding: 0.5rem 0;
+}
+
+.project-meta table td:first-child {
+    width: auto;
+    white-space: nowrap;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+}
+
+/* Changelog Specific Styles */
+.version-entry {
+    margin-bottom: 2rem;
+}
+
 .version-entry ul {
     margin-left: 0;
     padding-left: 1.2rem;
 }
-        
-.version-entry {
-    margin-bottom: 2rem;
-}
-        
+
 .version-header {
     margin-bottom: 0.5rem;
 }
-        
+
 .version-header h6 {
     margin: 0;
     font-size: var(--text-h6);
     text-transform: none;
     letter-spacing: normal;
 }
-        
+
 .version-date {
     color: var(--text-secondary);
     font-size: var(--text-small);
@@ -507,7 +583,6 @@ tbody td {
     display: block;
 }
 
-/* Unreleased Section */
 .unreleased-section {
     margin: 2rem 0;
     padding: 1rem;
@@ -525,12 +600,11 @@ tbody td {
     padding-left: 1.2rem;
 }
 
-/* Changelog Table */
+/* Changelog Table Specific */
 .changelog-table {
     width: 100%;
 }
 
-/* Column Widths */
 .changelog-table th:first-child,
 .changelog-table td:first-child {
     width: 17%;
@@ -547,14 +621,12 @@ tbody td {
     text-align: left;
 }
 
-/* Table Cell Alignment */
 .changelog-table th,
 .changelog-table td {
     text-align: left;
     padding-right: 1rem;
 }
 
-/* List Styling within Table */
 .changelog-table td > ul {
     margin: 0;
     padding-left: 1.2rem;
@@ -568,51 +640,36 @@ tbody td {
     padding-right: 1rem;
 }
 
-/* Nested Lists */
 .changelog-table ul ul {
     margin-top: 0.3rem;
     padding-left: 1.5rem;
 }
 
-/* Style the project metadata table */
-.project-meta {
-    margin: 2rem 0;  /* Add space above and below the table */
-    display: flex;
-    justify-content: center;  /* Centers the table horizontally */
-}
-
-/* Add more space before subheadings */
+/* Add spacing before article subheadings */
 .content-page main article h6 {
-    margin-top: 2.5rem;  /* Add more space above subheadings */
-    margin-bottom: 1rem; /* Consistent space below */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Future project meta tables, to style them consistently */
-.project-meta table {
-    width: auto;  /* Let the table size to its content */
-    width: 100%;
-    max-width: 600px; /* Prevents the table from getting too wide */
+/***************************************
+ * 8. IMAGE & MEDIA STYLES
+***************************************/
+
+/* Base image styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
 }
 
-.project-meta table td {
-    padding: 0.5rem 0;  /* Add some vertical padding */
-}
-
-.project-meta table td:first-child {
-    width: auto;  /* Let the first column size to its content */
-    white-space: nowrap;  /* Keeps labels like "Role" on one line */
-    padding-right: 2rem;  /* Add more space between label and content */
-    padding-left: 0.5rem;  /* Add more space between border and content */
-}
-
-/* Base grid layout */
+/* Grid System */
 .grid {
     display: grid;
     gap: 2rem;
     margin: 2rem 0;
 }
 
-/* Different grid sizes */
 .grid-small {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
@@ -625,7 +682,6 @@ tbody td {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
-/* Grid item styling */
 .grid-item {
     display: flex;
     flex-direction: column;
@@ -633,20 +689,17 @@ tbody td {
     text-align: center;
 }
 
-/* Optional: centered caption */
 .grid-item-caption {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-top: 0.5rem;
 }
 
-/* Specific modifier for pixel art */
 .grid-item.pixel-art img {
     image-rendering: pixelated;
     border-radius: 0;
 }
 
-/* Different alignments */
 .grid-item.align-left {
     align-items: flex-start;
     text-align: left;
@@ -657,19 +710,7 @@ tbody td {
     text-align: right;
 }
 
-/***************************************
- * 8. IMAGE STYLES
-***************************************/
-
-/* Base image styles */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-}
-
-/* Common layout patterns */
+/* Content with Image Layouts */
 .content-with-image {
     display: flex;
     gap: 2rem;
@@ -677,18 +718,17 @@ img {
     margin: 2rem 0;
 }
 
-/* Added this class for when I want closer to 50/50 split */
 .content-with-image.balanced {
     align-items: stretch;
 }
 
-.content-with-image.balanced img {
-    width: 45%; /* Slightly less than 50% to account for gap */
-    object-fit: cover; /* This maintains aspect ratio while filling the space */
-}
-
+.content-with-image.balanced img,
 .content-with-image.balanced .content-area {
     width: 45%;
+}
+
+.content-with-image.balanced img {
+    object-fit: cover;
 }
 
 .content-page .content-with-image:not(.balanced) {
@@ -705,7 +745,7 @@ img {
     margin: 0 auto;
 }
 
-/* Image size utilities */
+/* Image Size Utilities */
 .image-small {
     width: 140px;
 }
@@ -718,7 +758,7 @@ img {
     width: 600px;
 }
 
-/* Image position utilities */
+/* Image Position Utilities */
 .image-left {
     float: left;
     margin: 0 1rem 1rem 0;
@@ -733,34 +773,13 @@ img {
     margin: 1rem auto;
 }
 
-/* Prevent image from shrinking in flex container */
 .image-fixed {
     flex-shrink: 0;
 }
 
-/* Content area in image-text layouts */
 .content-area {
     flex-grow: 1;
-    min-width: 0; /* Prevents text from overflowing */
-}
-
-/* Responsive adjustments */
-@media (max-width: 37.5rem) {
-    .content-with-image {
-        flex-direction: column;
-    }
-    
-    .image-left,
-    .image-right {
-        float: none;
-        margin: 1rem 0;
-    }
-    
-    /* Allow images to be full width on mobile if needed */
-    .image-medium,
-    .image-large {
-        width: 100%;
-    }
+    min-width: 0;
 }
 
 /***************************************
@@ -782,67 +801,36 @@ a:hover {
     background-color: var(--link-hover);
 }
 
-/* Header Links */
-header h4 {
-    margin: 0 auto;  /* Center the heading */
-    width: fit-content;  /* Only take up as much space as needed */
-}
-
-header h4 a {
-    text-decoration: underline;
-    background-color: transparent;
-    color: var(--text-primary);
-    padding: 0;  /* Remove any padding */
-    display: inline;  /* Change from inline-block to inline */
-    white-space: nowrap;  /* Prevent wrapping */
-}
-
-header h4 a:hover {
-    color: var(--text-secondary);
-    background-color: transparent;
-}
-
-/* Footer Navigation Links */
-.footer-nav a {
-    color: var(--text-secondary);
-    background-color: transparent;
-    text-decoration: none;
-    padding: 0;
-    transition: color 0.2s ease;
-}
-
-.footer-nav a:hover {
-    color: var(--text-primary);
-    background-color: transparent;
-}
-
-/* Current Page Indicator */
-.footer-nav .current-page {
-    color: var(--text-primary);
-    background-color: var(--link-bg);
-    padding: 4px;
-    border-radius: 4px;
-}
-
-.footer-nav .current-page:hover {
-    background-color: var(--link-hover);
-    color: var(--text-primary);
-}
-
-/* Footer Links */
+/* Footer Links - Simpler cascade */
 footer a {
     color: var(--text-secondary);
     background-color: transparent;
-    text-decoration: none;
+    text-decoration: underline;
     padding: 0;
     transition: color 0.2s ease;
-    text-decoration: underline;
-
 }
 
 footer a:hover {
     color: var(--text-primary);
     background-color: transparent;
+}
+
+/* Footer Navigation Links */
+.footer-nav a {
+    text-decoration: none;
+}
+
+.footer-nav .current-page {
+    color: var(--text-primary);
+    background-color: var(--link-bg);
+    padding: 4px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.footer-nav .current-page:hover {
+    background-color: var(--link-hover);
+    color: var(--text-primary);
 }
 
 /* Icon Links */
@@ -854,7 +842,7 @@ footer a:hover {
 }
 
 .icon-container i {
-    font-size: 24px;    /* Change icon sizes */
+    font-size: 24px;
     color: var(--text-primary);
     transition: color 0.2s, transform 0.2s;
 }
@@ -863,7 +851,19 @@ footer a:hover {
     transform: scale(1.1);
 }
 
-/* Tag Styles */
+/* Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible,
+.tag:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+/***************************************
+ * 10. TAG SYSTEM
+***************************************/
+
+/* Base Tag Styles */
 .tag {
     display: inline-block;
     padding: 2px 4px;
@@ -884,156 +884,126 @@ footer a:hover {
 }
 
 .tag.active {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
 }
 
-/* Clear indicator with perfect circle */
+/* Active tag indicator */
 .tag.active::after {
     content: '×';
     position: absolute;
     top: -5px;
     right: -5px;
-    width: 12px;      /* Made both width and height exactly the same */
-    height: 12px;     /* Made both width and height exactly the same */
+    width: 12px;
+    height: 12px;
     background-color: var(--bg-primary);
     border: 1px solid var(--text-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 9px;   /* Slightly smaller font size to fit better */
+    font-size: 9px;
     line-height: 1;
     color: var(--text-primary);
     opacity: 0;
     transition: opacity 0.2s ease;
-    padding: 0;       /* Removed padding to ensure perfect circle */
+    padding: 0;
 }
 
 .tag.active:hover::after {
     opacity: 1;
 }
 
-/* Tag colors */
+/* Tag Colors - Light Theme
+ * Using both href and data-type selectors for compatibility
+ */
 .tag[href*="meta"], 
+.tag[data-type="meta"],
 .tag:not([href])[data-tag="meta"] { 
     background-color: #b2dfdb; 
 }
+
 .tag[href*="blog"], 
+.tag[data-type="blog"],
 .tag:not([href])[data-tag="blog"] { 
     background-color: #e1bee7; 
 }
+
 .tag[href*="life"],
-.tag:not([href])[data-tag="blog"] { 
+.tag[data-type="life"],
+.tag:not([href])[data-tag="life"] { 
     background-color: #c8e6c9; 
 }
+
 .tag[href*="notes"], 
+.tag[data-type="notes"],
 .tag:not([href])[data-tag="notes"] { 
     background-color: #e3f2fd; 
 }
+
 .tag[href*="films"],
+.tag[data-type="films"],
 .tag:not([href])[data-tag="films"] { 
     background-color: #fff3e0; 
 }
+
 .tag[href*="books"], 
+.tag[data-type="books"],
 .tag:not([href])[data-tag="books"] { 
     background-color: #e8eaf6; 
 }
+
 .tag[href*="music"], 
+.tag[data-type="music"],
 .tag:not([href])[data-tag="music"] { 
     background-color: #fce4ec; 
 }
 
-
-/* Update tag styles to ensure colors are applied */
-.tag[data-type="meta"] { 
-    background-color: #b2dfdb; 
-}
-.tag[data-type="blog"] { 
-    background-color: #e1bee7; 
-}
-.tag[data-type="life"] { 
-    background-color: #c8e6c9; 
-}
-.tag[data-type="notes"] { 
-    background-color: #e3f2fd; /* Light blue */
-}
-.tag[data-type="life"] { 
-    background-color: #f1f8e9; /* Light green */
-}
-.tag[data-type="films"] { 
-    background-color: #fff3e0; /* Light orange */
-}
-.tag[data-type="books"] { 
-    background-color: #e8eaf6; /* Light indigo */
-}
-.tag[data-type="music"] { 
-    background-color: #fce4ec; /* Light pink */
-}
-
-/* Dark mode tag colors */
+/* Tag Colors - Dark Theme */
 [data-theme="dark"] .tag[href*="meta"],
+[data-theme="dark"] .tag[data-type="meta"],
 [data-theme="dark"] .tag:not([href])[data-tag="meta"] { 
     background-color: #004d40; 
 }
+
 [data-theme="dark"] .tag[href*="blog"],
+[data-theme="dark"] .tag[data-type="blog"],
 [data-theme="dark"] .tag:not([href])[data-tag="blog"] { 
     background-color: #4a148c; 
 }
+
 [data-theme="dark"] .tag[href*="life"],
+[data-theme="dark"] .tag[data-type="life"],
 [data-theme="dark"] .tag:not([href])[data-tag="life"] { 
     background-color: #1b5e20; 
 }
+
 [data-theme="dark"] .tag[href*="notes"],
+[data-theme="dark"] .tag[data-type="notes"],
 [data-theme="dark"] .tag:not([href])[data-tag="notes"] { 
     background-color: #0d47a1; 
 }
+
 [data-theme="dark"] .tag[href*="films"],
+[data-theme="dark"] .tag[data-type="films"],
 [data-theme="dark"] .tag:not([href])[data-tag="films"] { 
     background-color: #e65100; 
 }
+
 [data-theme="dark"] .tag[href*="books"],
+[data-theme="dark"] .tag[data-type="books"],
 [data-theme="dark"] .tag:not([href])[data-tag="books"] { 
     background-color: #1a237e; 
 }
+
 [data-theme="dark"] .tag[href*="music"],
+[data-theme="dark"] .tag[data-type="music"],
 [data-theme="dark"] .tag:not([href])[data-tag="music"] { 
     background-color: #880e4f; 
 }
 
-[data-theme="dark"] .tag[data-type="meta"] { 
-    background-color: #004d40; 
-}
-[data-theme="dark"] .tag[data-type="blog"] { 
-    background-color: #4a148c; 
-}
-[data-theme="dark"] .tag[data-type="life"] { 
-    background-color: #1b5e20; 
-}
-[data-theme="dark"] .tag[data-type="notes"] { 
-    background-color: #0d47a1; /* Dark blue */
-}
-[data-theme="dark"] .tag[data-type="life"] { 
-    background-color: #1b5e20; /* Dark green */
-}
-[data-theme="dark"] .tag[data-type="films"] { 
-    background-color: #e65100; /* Dark orange */
-}
-[data-theme="dark"] .tag[data-type="books"] { 
-    background-color: #1a237e; /* Dark indigo */
-}
-[data-theme="dark"] .tag[data-type="music"] { 
-    background-color: #880e4f; /* Dark pink */
-}
-
-/* Active state overrides specific colors */
-.tag.active {
-    background-color: var(--text-primary) !important;
-    color: var(--bg-primary) !important;
-}
-
 /***************************************
- * 10. CODE & BLOCKQUOTE STYLES
+ * 11. CODE & BLOCKQUOTE STYLES
 ***************************************/
 
 /* Code Blocks */
@@ -1067,23 +1037,19 @@ blockquote {
     border-left: 3px solid var(--border-color);
     color: var(--blockquote-color);
 }
+
 .quote-attribution {
     text-align: right;
-    margin-top: -1rem;  /* Reduces space between quote and attribution */
-    font-size: 1.1rem;  /* Slightly larger text */
+    margin-top: -1rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
 }
 
-/* Horizontal Rule */
-hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: 2rem 0;
-}
-
 /***************************************
- * 11. FOOTER STYLES
+ * 12. FOOTER STYLES
 ***************************************/
+
+/* Entry Footer */
 .entry-footer {
     display: flex;
     justify-content: space-between;
@@ -1102,13 +1068,25 @@ hr {
     text-align: right;
 }
 
-/* For entries without tags */
-.entry-footer {
-    justify-content: space-between;  /* This ensures spacing even without tags */
+.entry-footer .entry-tags:empty {
+    min-width: 1px;
 }
 
-.entry-footer .entry-tags:empty {
-    min-width: 1px;  /* Ensures the flex layout maintains spacing even when empty */
+/* Event Details */
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.event-details .label {
+    font-weight: bold;
+}
+
+.duration, .location {
+    display: flex;
+    gap: 0.25rem;
 }
 
 /* Footer Navigation */
@@ -1145,25 +1123,9 @@ footer {
     justify-content: flex-end;
 }
 
-.event-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-}
-
-.event-details .label {
-    font-weight: bold;
-}
-
-.duration, .location {
-    display: flex;
-    gap: 0.25rem;
-}
-
 /* Theme Toggle Button */
 .theme-toggle {
-    padding: 0.5rem;  /* Increased padding for larger hitbox */
+    padding: 0.5rem;
     border-radius: 8px;
     border: none;
     background: var(--bg-primary);
@@ -1174,13 +1136,12 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Optional: add min-width/height to ensure consistent clickable area */
     min-width: 2.5rem;
     min-height: 2.5rem;
 }
 
 .theme-toggle svg {
-    width: 1.4rem;  /* Slightly larger icons */
+    width: 1.4rem;
     height: 1.4rem;
 }
 
@@ -1190,7 +1151,7 @@ footer {
 }
 
 /***************************************
- * 12. ANIMATION STYLES
+ * 13. ANIMATION STYLES
 ***************************************/
 
 /* Typewriter Effect */
@@ -1220,21 +1181,29 @@ footer {
 }
 
 /***************************************
- * 13. RESPONSIVE DESIGN
+ * 14. RESPONSIVE DESIGN
 ***************************************/
 
 @media (max-width: 37.5rem) {
-        
-    /* Increase icon size for mobile */
+    /* Mobile CSS Variables */
+    :root {
+        --container-padding: 16px;
+        --section-spacing: 1.5rem;
+        --element-spacing: 0.75rem;
+        --text-h1: 8rem;
+    }
+    
+    /* Icon adjustments for mobile */
     .icon-container i {
-        font-size: 32px; /* Increased from 24px */
+        font-size: 32px;
     }
 
     .icon-container {
-        gap: 1.2rem; /* Increased spacing between icons */
-        margin-bottom: 2rem; /* Add space below icons */
+        gap: 1.2rem;
+        margin-bottom: 2rem;
     }
 
+    /* Table responsiveness */
     .table-container {
         flex-direction: column;
         align-items: stretch;
@@ -1255,6 +1224,7 @@ footer {
         width: 24%;
     }
 
+    /* Image and content responsiveness */
     .content-with-image {
         flex-direction: column;
         margin: 1rem 0;
@@ -1268,21 +1238,18 @@ footer {
 
     .content-page .content-with-image:not(.balanced) img {
         max-width: 90%;
-
     }
 
     .content-with-image.balanced .content-area {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
     }
     
-    /* Ensure all images take almost full width when stacked */
     .content-with-image img {
         width: 99%;
         margin: 0 auto;
         display: block;
     }
     
-    /* Reset content area to full width */
     .content-with-image .content-area {
         width: 100%;
     }
@@ -1292,28 +1259,32 @@ footer {
     }
 
     .content-with-image.balanced p:last-child {
-        margin: 0;  /* Remove extra gap in mobile view */
+        margin: 0;
     }
 
-    /* Reset float and align image center on mobile */
+    /* Image float reset for mobile */
     .image-left,
     .image-right {
         float: none;
-        margin: 1rem auto;  /* Center the image with auto margins */
-        display: block;     /* Ensures proper centering */
+        margin: 1rem auto;
+        display: block;
     }
 
-    /* Ensure text indentation works on mobile */
+    /* Text indentation on mobile */
     .content-page main article p {
-        text-indent: 2em !important;  /* Force indentation */
-        clear: both;       /* Prevent float interference */
+        text-indent: 2em !important;
+        clear: both;
     }
 
-    /* Exception for paragraphs containing images */
+    .content-page main article .poem p {
+        text-indent: 0 !important; /* Override mobile indentation for poems */
+    }
+
     .content-page main article p:has(img) {
-        text-align: center;  /* Center the image container */
+        text-align: center;
     }
 
+    /* Blockquote adjustments */
     blockquote {
         font-size: 1rem;
     }
@@ -1322,21 +1293,15 @@ footer {
         font-size: 1rem;
     }
 
-    :root {
-        --container-padding: 16px;
-        --section-spacing: 1.5rem;
-        --element-spacing: 0.75rem;
-        --text-h1: 8rem;
-    }
+    /* Footer adjustments */
     footer p {
-        line-height: 1.2; /* More space only when needed */
-        margin-bottom: 0; /* Space between paragraphs instead */
+        line-height: 1.2;
+        margin-bottom: 0;
     }
 
     .footer-content {
         flex-direction: column-reverse;
         align-items: flex-start;
-
     }
     
     .footer-right {

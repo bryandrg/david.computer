@@ -7,6 +7,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
     
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -32,8 +33,10 @@
     <link rel="manifest" href="/assets/site.webmanifest" />
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
+
     <link rel="stylesheet" href="/styles.css">
     
     <title>Changelog | DAVID.COMPUTER</title>
@@ -69,15 +72,39 @@
 
                     <div class="version-entry">
                         <div class="version-header">
+                            <h6>Version 0.6.9</h6>
+                            <time class="version-date">Released August 17, 2025</time>
+                        </div>
+                        <ul>
+                            <li>Fixed poem text indentation appearing on desktop and mobile</li>
+                            <li>Performance optimizations for font loading
+                                <ul>
+                                    <li>Added font preconnect links for faster loading</li>
+                                    <li>Removed redundant CSS font imports</li>
+                                    <li>Improved font fallback stacks</li>
+                                </ul>
+                            </li>
+                            <li>Improved accessibility with focus states for keyboard navigation</li>
+                            <li>Added color-scheme meta tag for better cross-browser compatibility</li>
+                            <li>Enhanced list styling with appropriately sized bullets and better spacing</li>
+                            <li>Added resource hints for faster embedded content loading</li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="version-entry">
+                        <div class="version-header">
                             <h6>Version 0.6.8</h6>
                             <time class="version-date">Released January 1, 2025</time>
                         </div>
                         <ul>
-                            <li>Added Events section featuring art exhibitions and shows</li>
+                            <li>Added Events section featuring art exhibitions and shows
                                 <ul> 
                                     <li>New event pages for "Hoja al Viento" solo exhibition and Milagro Coffee exhibition</li>
                                     <li>Event metadata display with duration and location</li>
                                 </ul> 
+                            </li>
                             <li>Updated footer copyright to include 2025</li>
                         </ul>
                     </div>
