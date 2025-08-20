@@ -60,15 +60,41 @@
                 <div class="unreleased-section">
                     <h6>Coming Soon</h6>
                     <ul>
-                        <li>Better display on different screen sizes</li>
-                        <li>Photo gallery</li>
-                        <li>RSS feed for updates</li>
                         <li>'Go back to top' button</li>
+                        <li>Better display on different screen sizes</li>
+                        <li>Photo gallery/calendar</li>
+                        <li>RSS feed for updates</li>
                         <li>Comments section for blog posts</li>
                     </ul>
                 </div>
                 
                 <article>
+
+                    <div class="version-entry">
+                        <div class="version-header">
+                            <h6>Version 0.7.0</h6>
+                            <time class="version-date">Released August 20, 2025</time>
+                        </div>
+                        <ul>
+                            <li>Added lightbox image viewer for enhanced photo viewing
+                                <ul>
+                                    <li>Click any image to open in fullscreen</li>
+                                    <li>Navigate with keyboard arrows or swipe on mobile</li>
+                                    <li>Image counter (1/5 format) in top-left corner</li>
+                                    <li>Multiple ways to close (X button, click image, click outside, Escape key)</li>
+                                    <li>Automatic captions from image alt text</li>
+                                    <li>Fixed button positions for consistent UI</li>
+                                    <li>Fully accessible with ARIA labels and focus management</li>
+                                    <li>Touch gesture support for mobile devices</li>
+                                    <li>Progressive enhancement (images remain viewable without JavaScript)</li>
+                                </ul>
+                            </li>
+                            <li>Added title attributes to theme toggle buttons for better accessibility</li>
+                            <li>Images can be excluded from lightbox with 'no-lightbox' class</li>
+                        </ul>
+                    </div>
+
+                    <hr>
 
                     <div class="version-entry">
                         <div class="version-header">
@@ -313,7 +339,7 @@
                     <p>&copy; 2024 • DAVID.COMPUTER</p>
                 </div>
                 <div class="footer-right">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Switch theme">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>

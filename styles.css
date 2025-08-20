@@ -1,22 +1,22 @@
 /***************************************
  * DAVID.COMPUTER STYLESHEET
- * Last updated: August 17, 2025
+ * Last updated: August 20, 2025
 
  * TABLE OF CONTENTS
  *  1. CSS Variables & Theme Settings
- *  2. Font Imports
- *  3. Basic Reset & General Styles
- *  4. Typography & Text Styles
- *  5. Layout & Container Styles
- *  6. Header & Navigation
- *  7. Table Styles
- *  8. Image & Media Styles
- *  9. Link Styles
- * 10. Tag System
- * 11. Code & Blockquote Styles
- * 12. Footer Styles
- * 13. Animation Styles
- * 14. Responsive Design
+ *  2. Basic Reset & General Styles
+ *  3. Typography & Text Styles
+ *  4. Layout & Container Styles
+ *  5. Header & Navigation
+ *  6. Table Styles
+ *  7. Image & Media Styles
+ *  8. Link Styles
+ *  9. Tag System
+ * 10. Code & Blockquote Styles
+ * 11. Footer Styles
+ * 12. Animation Styles
+ * 13. Responsive Design
+ * 14. Lightbox Styles 
 ***************************************/
 
 /***************************************
@@ -84,12 +84,7 @@
 }
 
 /***************************************
- * 2. FONT IMPORTS (DELETED)
- * Fonts loaded via HTML links in head (faster)
-***************************************/
-
-/***************************************
- * 3. BASIC RESET & GENERAL STYLES
+ * 2. BASIC RESET & GENERAL STYLES
 ***************************************/
 
 html {
@@ -143,7 +138,7 @@ body, html {
 }
 
 /***************************************
- * 4. TYPOGRAPHY & TEXT STYLES
+ * 3. TYPOGRAPHY & TEXT STYLES
 ***************************************/
 
 /* Headers - Using cascade for common properties */
@@ -365,7 +360,7 @@ hr {
 }
 
 /***************************************
- * 5. LAYOUT & CONTAINER STYLES
+ * 4. LAYOUT & CONTAINER STYLES
 ***************************************/
 
 .container {
@@ -384,7 +379,7 @@ hr {
 }
 
 /***************************************
- * 6. HEADER & NAVIGATION
+ * 5. HEADER & NAVIGATION
 ***************************************/
 
 header {
@@ -435,7 +430,7 @@ header h4 a:hover {
 }
 
 /***************************************
- * 7. TABLE STYLES
+ * 6. TABLE STYLES
 ***************************************/
 
 /* Basic Table */
@@ -514,7 +509,7 @@ tbody td {
 
 .full-width-table td:last-child,
 .full-width-table th:last-child {
-    width: 36%;
+    width: 34%;
     text-align: right;
 }
 
@@ -652,7 +647,7 @@ tbody td {
 }
 
 /***************************************
- * 8. IMAGE & MEDIA STYLES
+ * 7. IMAGE & MEDIA STYLES
 ***************************************/
 
 /* Base image styles */
@@ -783,7 +778,7 @@ img {
 }
 
 /***************************************
- * 9. LINK STYLES
+ * 8. LINK STYLES
 ***************************************/
 
 /* General Links */
@@ -860,13 +855,13 @@ button:focus-visible,
 }
 
 /***************************************
- * 10. TAG SYSTEM
+ * 9. TAG SYSTEM
 ***************************************/
 
 /* Base Tag Styles */
 .tag {
     display: inline-block;
-    padding: 2px 4px;
+    padding: 2px 2px;
     margin-left: 0rem;
     border-radius: 4px;
     font-size: 0.8em;
@@ -1003,7 +998,7 @@ button:focus-visible,
 }
 
 /***************************************
- * 11. CODE & BLOCKQUOTE STYLES
+ * 10. CODE & BLOCKQUOTE STYLES
 ***************************************/
 
 /* Code Blocks */
@@ -1046,7 +1041,7 @@ blockquote {
 }
 
 /***************************************
- * 12. FOOTER STYLES
+ * 11. FOOTER STYLES
 ***************************************/
 
 /* Entry Footer */
@@ -1151,7 +1146,7 @@ footer {
 }
 
 /***************************************
- * 13. ANIMATION STYLES
+ * 12. ANIMATION STYLES
 ***************************************/
 
 /* Typewriter Effect */
@@ -1181,7 +1176,7 @@ footer {
 }
 
 /***************************************
- * 14. RESPONSIVE DESIGN
+ * 13. RESPONSIVE DESIGN
 ***************************************/
 
 @media (max-width: 37.5rem) {
@@ -1309,4 +1304,221 @@ footer {
         width: 100%;
         justify-content: flex-start;
     }
+}
+
+/***************************************
+ * 14. LIGHTBOX STYLES
+***************************************/
+/* Lightbox Container */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+/* Lightbox Content Wrapper */
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lightbox Image */
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out; /* Add cursor to indicate clickable */
+}
+
+/* Lightbox Caption */
+.lightbox-caption {
+    position: fixed;
+    bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+/* Empty caption should be hidden */
+.lightbox-caption:empty {
+    display: none;
+}
+
+/* Image Counter */
+.lightbox-counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 10000;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    z-index: 1001;
+    opacity: 0.8;
+}
+
+.lightbox-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Focus styles for accessibility */
+.lightbox-close:focus,
+.lightbox-nav:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Images that can be clicked for lightbox */
+article img:not(.no-lightbox):hover,
+.grid-item img:not(.no-lightbox):hover,
+.content-with-image img:not(.no-lightbox):hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 100vw;
+    }
+    
+    .lightbox-image {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+    }
+    
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    
+    .lightbox-prev {
+        left: 10px;
+    }
+    
+    .lightbox-next {
+        right: 10px;
+    }
+    
+    .lightbox-caption {
+        bottom: -40px;
+        font-size: 0.8rem;
+    }
+
+    .lightbox-counter {
+        top: 10px;
+        left: 10px;
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
+/* Animation for image loading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lightbox.active .lightbox-image {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Prevent body scroll when lightbox is open */
+body.lightbox-open {
+    overflow: hidden;
 }
