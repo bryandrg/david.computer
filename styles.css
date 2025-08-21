@@ -212,6 +212,9 @@ li {
     position: relative;
 }
 
+.content-page main li {
+    line-height: 1.5;
+}
 /* Slightly smaller bullet points with better alignment */
 ul li {
     list-style: none; /* Remove default bullets */
@@ -234,7 +237,7 @@ ul ul li::before {
     font-size: 0.9em;
 }
 
-/* Fix #2: Better spacing for nested lists */
+/* Better spacing for nested lists */
 li ul {
     margin-top: 0.3rem;
     margin-bottom: 0.4rem;
