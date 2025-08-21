@@ -1418,7 +1418,7 @@ footer {
     border: none;
     color: white;
     font-size: 2.5rem;
-    padding: 1rem 1.2rem;
+    padding: 0rem 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 8px;
@@ -1479,6 +1479,8 @@ article img:not(.no-lightbox):hover,
         width: 40px;
         height: 40px;
         font-size: 30px;
+        padding: 0rem 1rem;
+        background: none;
     }
     
     .lightbox-prev {
@@ -1490,7 +1492,7 @@ article img:not(.no-lightbox):hover,
     }
     
     .lightbox-caption {
-        bottom: -40px;
+        bottom: 20px;
         font-size: 0.8rem;
     }
 
