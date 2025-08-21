@@ -215,62 +215,105 @@ function initLightbox() {
         '.content-with-image img:not(.no-lightbox)'
     );
     
-    // Store images that have lightbox enabled
-    images.forEach((img, index) => {
-        // Skip if image has the no-lightbox class (redundant but safe)
+    // Process all images in DOM order
+    images.forEach((img, domIndex) => {
+        // Skip if explicitly excluded
         if (img.classList.contains('no-lightbox')) return;
         
-        // Wait for image to load to check dimensions (if not already loaded)
-        const setupImage = () => {
-            // Skip if image is too small (likely an icon)
-            if (img.naturalWidth > 0 && img.naturalHeight > 0 && 
-                img.naturalWidth < 100 && img.naturalHeight < 100) {
-                return;
+        // Add placeholder to maintain DOM order
+        const imageIndex = lightboxImages.length;
+        lightboxImages.push({
+            src: img.src,
+            alt: img.alt,
+            caption: img.getAttribute('title') || img.alt || '',
+            element: img,
+            valid: true  // Assume valid until proven otherwise
+        });
+        
+        // Store the index on the element
+        img.dataset.lightboxIndex = imageIndex;
+        
+        // Function to validate and setup image
+        const validateAndSetup = () => {
+            // Check if image is too small (likely an icon)
+            if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+                if (img.naturalWidth < 100 && img.naturalHeight < 100) {
+                    // Mark as invalid but keep in array to maintain indices
+                    lightboxImages[imageIndex].valid = false;
+                    return;
+                }
             }
             
-            // Get the current index for this image
-            const imageIndex = lightboxImages.length;
-            
-            // Add to lightbox images array
-            lightboxImages.push({
-                src: img.src,
-                alt: img.alt,
-                caption: img.alt || img.getAttribute('title') || ''
-            });
-            
-            // Make image clickable
+            // Image is valid, make it clickable
             img.style.cursor = 'zoom-in';
             img.setAttribute('tabindex', '0');
             img.setAttribute('role', 'button');
             img.setAttribute('aria-label', 'Click to enlarge image');
-            img.dataset.lightboxIndex = imageIndex;
             
             // Add click handler
-            img.addEventListener('click', function() {
-                openLightbox(parseInt(this.dataset.lightboxIndex));
+            img.addEventListener('click', function(e) {
+                e.preventDefault();
+                const index = parseInt(this.dataset.lightboxIndex);
+                openLightbox(index);
             });
             
-            // Add keyboard handler for accessibility
+            // Add keyboard handler
             img.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openLightbox(parseInt(this.dataset.lightboxIndex));
+                    const index = parseInt(this.dataset.lightboxIndex);
+                    openLightbox(index);
                 }
             });
         };
         
-        // If image is already loaded, set it up immediately
+        // Check if image is already loaded
         if (img.complete && img.naturalWidth > 0) {
-            setupImage();
+            validateAndSetup();
         } else {
-            // Otherwise wait for it to load
-            img.addEventListener('load', setupImage);
+            // Wait for image to load
+            img.addEventListener('load', validateAndSetup);
+            img.addEventListener('error', () => {
+                lightboxImages[imageIndex].valid = false;
+            });
         }
     });
     
+    // Get valid images only (for navigation)
+    function getValidImages() {
+        return lightboxImages.filter(img => img.valid);
+    }
+    
+    // Get the valid index from the full array index
+    function getValidIndex(fullIndex) {
+        let validCount = 0;
+        for (let i = 0; i <= fullIndex; i++) {
+            if (lightboxImages[i] && lightboxImages[i].valid) {
+                if (i === fullIndex) return validCount;
+                validCount++;
+            }
+        }
+        return 0;
+    }
+    
+    // Get the full index from valid index
+    function getFullIndex(validIndex) {
+        let validCount = 0;
+        for (let i = 0; i < lightboxImages.length; i++) {
+            if (lightboxImages[i] && lightboxImages[i].valid) {
+                if (validCount === validIndex) return i;
+                validCount++;
+            }
+        }
+        return 0;
+    }
+    
     // Open lightbox function
-    function openLightbox(index) {
-        currentImageIndex = index;
+    function openLightbox(fullIndex) {
+        // Check if image is valid
+        if (!lightboxImages[fullIndex] || !lightboxImages[fullIndex].valid) return;
+        
+        currentImageIndex = getValidIndex(fullIndex);
         updateLightboxImage();
         lightboxElements.container.classList.add('active');
         lightboxElements.container.setAttribute('aria-hidden', 'false');
@@ -290,32 +333,38 @@ function initLightbox() {
         document.body.style.overflow = '';
         
         // Return focus to the image that opened the lightbox
-        const triggerImage = document.querySelector(`[data-lightbox-index="${currentImageIndex}"]`);
+        const fullIndex = getFullIndex(currentImageIndex);
+        const triggerImage = lightboxImages[fullIndex]?.element;
         if (triggerImage) triggerImage.focus();
     }
     
     // Update displayed image
     function updateLightboxImage() {
-        const imageData = lightboxImages[currentImageIndex];
+        const validImages = getValidImages();
+        const imageData = validImages[currentImageIndex];
+        if (!imageData) return;
+        
         lightboxElements.image.src = imageData.src;
         lightboxElements.image.alt = imageData.alt;
         lightboxElements.caption.textContent = imageData.caption;
         
         // Update counter
-        lightboxElements.counter.textContent = `${currentImageIndex + 1}/${lightboxImages.length}`;
+        lightboxElements.counter.textContent = `${currentImageIndex + 1}/${validImages.length}`;
     }
     
     // Update navigation buttons visibility
     function updateNavigation() {
+        const validImages = getValidImages();
         lightboxElements.prev.style.display = currentImageIndex > 0 ? 'block' : 'none';
-        lightboxElements.next.style.display = currentImageIndex < lightboxImages.length - 1 ? 'block' : 'none';
+        lightboxElements.next.style.display = currentImageIndex < validImages.length - 1 ? 'block' : 'none';
         
         // Hide counter if only one image
-        lightboxElements.counter.style.display = lightboxImages.length > 1 ? 'block' : 'none';
+        lightboxElements.counter.style.display = validImages.length > 1 ? 'block' : 'none';
     }
     
     // Navigate to previous image
     function showPrevImage() {
+        const validImages = getValidImages();
         if (currentImageIndex > 0) {
             currentImageIndex--;
             updateLightboxImage();
@@ -325,7 +374,8 @@ function initLightbox() {
     
     // Navigate to next image
     function showNextImage() {
-        if (currentImageIndex < lightboxImages.length - 1) {
+        const validImages = getValidImages();
+        if (currentImageIndex < validImages.length - 1) {
             currentImageIndex++;
             updateLightboxImage();
             updateNavigation();
