@@ -1229,13 +1229,13 @@ footer {
     }
     
     .content-with-image.balanced img {
-        width: 90%;
+        width: 75%;
         margin: 0 auto;
         display: block;
     }
 
     .content-page .content-with-image:not(.balanced) img {
-        max-width: 90%;
+        max-width: 75%;
     }
 
     .content-with-image.balanced .content-area {
@@ -1243,7 +1243,7 @@ footer {
     }
     
     .content-with-image img {
-        width: 99%;
+        width: 80%;
         margin: 0 auto;
         display: block;
     }
