@@ -957,6 +957,12 @@ button:focus-visible,
     background-color: #fce4ec; 
 }
 
+.tag[href*="career"], 
+.tag[data-type="career"],
+.tag:not([href])[data-tag="career"] { 
+    background-color: #fff9c4; 
+}
+
 /* Tag Colors - Dark Theme */
 [data-theme="dark"] .tag[href*="meta"],
 [data-theme="dark"] .tag[data-type="meta"],
@@ -998,6 +1004,12 @@ button:focus-visible,
 [data-theme="dark"] .tag[data-type="music"],
 [data-theme="dark"] .tag:not([href])[data-tag="music"] { 
     background-color: #880e4f; 
+}
+
+[data-theme="dark"] .tag[href*="career"],
+[data-theme="dark"] .tag[data-type="career"],
+[data-theme="dark"] .tag:not([href])[data-tag="career"] { 
+    background-color: #f57f17; 
 }
 
 /***************************************
