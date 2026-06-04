@@ -1,0 +1,5 @@
+# Local development tools — not part of the website
+scripts/
+
+# Internal photo processing checkpoint — used by scripts/ only, not by the gallery
+photos/processed.json

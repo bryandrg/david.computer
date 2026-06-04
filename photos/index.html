@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Photos by Bryan David — a personal photo gallery">
+    <meta name="author" content="Bryan David">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Photos | DAVID.COMPUTER">
+    <meta property="og:description" content="Photos by Bryan David">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://david.computer/photos/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/photos/photos.css">
+
+    <title>Photos | DAVID.COMPUTER</title>
+</head>
+<body class="index-page">
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div>
+                <h4><a href="/">DAVID.COMPUTER</a></h4>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h5>Photos</h5>
+
+                <!-- View controls -->
+                <div class="photos-controls">
+                    <div class="photos-view-toggle">
+                        <button class="photos-toggle-btn active" data-view="grid">Grid</button>
+                        <button class="photos-toggle-btn" data-view="calendar">Calendar</button>
+                    </div>
+                    <button class="photos-surprise-btn" title="Open a randomly selected photo">Surprise me</button>
+                </div>
+
+                <!-- Camera filter — only shown in grid view, populated by JS -->
+                <div id="camera-filter-container"></div>
+
+                <!-- Grid view (default) -->
+                <div id="grid-view"></div>
+
+                <!-- Calendar view -->
+                <div id="calendar-view" hidden></div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p id="photo-breadcrumb"><a href="/">Home</a> / <a href="/photos/">Photos</a></p>
+                    <p>&copy; 2024–2026 • DAVID.COMPUTER</p>
+                </div>
+                <div class="footer-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Switch theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js" defer></script>
+    <script src="/photos/photos.js" defer></script>
+</body>
+</html>
