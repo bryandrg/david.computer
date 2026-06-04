@@ -205,6 +205,7 @@
         const camera = fileToCamera[f];
         let caption  = d ? formatTimestamp(d) : f;
         if (camera) caption += ' · ' + camera;
+        lb.img.src = '';
         lb.img.src = PHOTO_BASE + f;
         lb.caption.textContent = caption;
         const multi = lbList.length > 1;
